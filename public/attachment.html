@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attachment Style Quiz | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="attachment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="brand-logo">
+                    <h2><a href="dashboard.html" style="text-decoration:none; color:inherit;">Clario</a></h2>
+                </div>
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display">User</span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown"><a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li class="active"><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+            <header>
+                <h1>Attachment Style Quiz</h1>
+            </header>
+
+            <section class="quiz-layout">
+                <aside class="card quiz-list-card">
+                    <h2 class="quiz-list-title">TAKE A QUIZ</h2>
+                    <ul>
+                        <li><a href="emotion.html">
+                            <div class="quiz-list-text"><h3>What Emotion Are You?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-smile"></i></div>
+                        </a></li>
+                        <li><a href="attachment.html">
+                            <div class="quiz-list-text"><h3>What's Your Attachment Style?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-lock"></i></div>
+                        </a></li>
+                        <li><a href="gaslighting.html">
+                            <div class="quiz-list-text"><h3>Are You Being Gaslighted?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-bolt"></i></div>
+                        </a></li>
+                    </ul>
+                </aside>
+
+                <div class="quiz-main-content">
+                    <div class="card quiz-container" id="quiz-content">
+                        <form id="attachment-quiz-form">
+                            <div class="quiz-question-wrapper active">
+                                <div class="quiz-question">
+                                    <p>1. Do you doubt how you feel and/or question what happened or didn't happen during interactions with this person?</p>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q1" value="rarely" required>Rarely or never</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q1" value="sometimes">Sometimes</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q1" value="frequently">Frequently</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="next-question-btn card-button">Next</button>
+                            </div>
+
+                            <div class="quiz-question-wrapper">
+                                <div class="quiz-question">
+                                    <p>2. How comfortable are you with being emotionally vulnerable?</p>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q2" value="comfortable" required>Pretty comfortable. I can share my inner thoughts with others.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q2" value="tough">I have a tough time opening up, and I keep my emotions to myself.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q2" value="avoid">Not at all. I avoid being vulnerable as much as possible.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q2" value="gradual">It takes a while to feel comfortable enough to trust someone with my feelings, but I get there.</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="next-question-btn card-button">Next</button>
+                            </div>
+
+                            <div class="quiz-question-wrapper">
+                                <div class="quiz-question">
+                                    <p>3. How do you deal with conflicts in relationships?</p>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q3" value="defensive" required>I get defensive. It's hard to see things from the other person's POV.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q3" value="anxious">I get anxious and try to resolve things by people-pleasing.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q3" value="resolution">I focus on the issues and try to find a resolution.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q3" value="avoidant">I shut down and avoid confrontation or conflict.</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="next-question-btn card-button">Next</button>
+                            </div>
+
+                            <div class="quiz-question-wrapper">
+                                <div class="quiz-question">
+                                    <p>4. Do you trust other people?</p>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q4" value="rarely" required>I rarely trust others and often think they don't have good intentions.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q4" value="hard">It's pretty hard to trust people completely.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q4" value="cautious">I trust them for the most part, but I still remain cautious.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q4" value="generally">Generally, sure. I believe they have good intentions.</label>
+                                    </div>
+                                </div>
+                                <button type="button" class="next-question-btn card-button">Next</button>
+                            </div>
+
+                            <div class="quiz-question-wrapper">
+                                <div class="quiz-question">
+                                    <p>5. How do you deal with conflicts in relationships?</p>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q5" value="defensive" required>I get defensive. It's hard to see things from the other person's POV.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q5" value="anxious">I get anxious and try to resolve things by people-pleasing.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q5" value="resolution">I focus on the issues and try to find a resolution.</label>
+                                    </div>
+                                    <div class="quiz-option">
+                                        <label><input type="radio" name="q5" value="avoidant">I shut down and avoid confrontation or conflict.</label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="final-submit-btn card-button">Submit Answers</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="card quiz-results" style="display:none;">
+                        <h2 id="result-title"></h2>
+                        <div id="result-content"></div>
+                        <button class="card-button" onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
+                    </div>
+
+                    <div class="card" style="margin-top: 30px;">
+                        <div class="card-header"><i class="fas fa-history"></i><h3>Your Past Quiz Results</h3></div>
+                        <div id="past-results-container"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Floating Reading Progress Indicator -->
+        <div class="reading-progress-indicator">
+            <div class="progress-circle">
+                <span id="progress-percentage">0%</span>
+            </div>
+            <div class="progress-text">Reading</div>
+        </div>
+    </div>
+    
+    <div id="toast-notification"></div>
+    <script src="attachment.js"></script>
+</body>
+</html>

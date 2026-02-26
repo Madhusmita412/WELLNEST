@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Tracker | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* MASTERPIECE SLEEP TRACKER VISUALIZATIONS */
+        
+        body {
+            overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(3, 164, 94, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(114, 189, 70, 0.02) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(30, 41, 59, 0.03) 0%, rgba(15, 23, 42, 0.02) 100%);
+            animation: sleepBackground 40s ease-in-out infinite;
+        }
+        
+        /* Spectacular header effects */
+        .main-header-centered {
+            position: relative;
+            background: linear-gradient(
+                135deg, 
+                var(--color-teal) 0%, 
+                var(--color-light-green) 50%,
+                var(--color-teal) 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            animation: headerGradientShift 8s ease-in-out infinite;
+            box-shadow: 
+                0 8px 32px rgba(3, 164, 94, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .main-header-centered::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: headerShine 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Premium navigation */
+        .top-nav ul li {
+            animation: navItemSlide 1s ease-out both;
+        }
+        
+        .top-nav ul li:nth-child(1) { animation-delay: 0.1s; }
+        .top-nav ul li:nth-child(2) { animation-delay: 0.2s; }
+        .top-nav ul li:nth-child(3) { animation-delay: 0.3s; }
+        .top-nav ul li:nth-child(4) { animation-delay: 0.4s; }
+        .top-nav ul li:nth-child(5) { animation-delay: 0.5s; }
+        .top-nav ul li:nth-child(6) { animation-delay: 0.6s; }
+        .top-nav ul li:nth-child(7) { animation-delay: 0.7s; }
+        .top-nav ul li:nth-child(8) { animation-delay: 0.8s; }
+        
+        /* Spectacular main title */
+        main header h1 {
+            background: linear-gradient(
+                135deg,
+                var(--color-teal) 0%,
+                var(--color-light-green) 50%,
+                #6366f1 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: sleepTitleGradient 6s ease-in-out infinite, titleEntrance 1.5s ease-out;
+            text-shadow: 0 4px 20px rgba(3, 164, 94, 0.3) !important;
+            position: relative;
+            display: inline-block;
+            font-size: 2.5rem !important;
+            margin-bottom: 2rem !important;
+        }
+        
+        main header h1::after {
+            content: '💤';
+            position: absolute;
+            top: -10px;
+            right: -40px;
+            font-size: 1.8rem;
+            animation: sleepIconFloat 4s ease-in-out infinite;
+        }
+        
+        main header h1::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-light-green), #6366f1, var(--color-teal));
+            background-size: 300% 100%;
+            border-radius: 2px;
+            animation: titleUnderlineShift 4s ease-in-out infinite;
+        }
+        
+        /* Premium content grid */
+        .content-grid {
+            animation: gridSlideIn 1.5s ease-out 0.8s both;
+            position: relative;
+        }
+        
+        .content-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(3, 164, 94, 0.01) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(114, 189, 70, 0.01) 0%, transparent 50%);
+            animation: gridParticles 25s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Spectacular cards */
+        .card {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(248, 249, 250, 0.8) 50%,
+                rgba(255, 255, 255, 0.9) 100%
+            ) !important;
+            backdrop-filter: blur(25px) !important;
+            border-radius: 35px !important;
+            border: 2px solid rgba(3, 164, 94, 0.12) !important;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.08),
+                0 12px 35px rgba(3, 164, 94, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+            animation: cardSlideUp 1.5s ease-out both;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:nth-child(1) { animation-delay: 1.2s; }
+        .card:nth-child(2) { animation-delay: 1.5s; }
+        .card:nth-child(3) { animation-delay: 1.8s; }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(3, 164, 94, 0.02) 0%, transparent 60%),
+                radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.02) 0%, transparent 60%);
+            animation: cardParticles 20s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: 35px;
+        }
+        
+        .card:hover {
+            transform: translateY(-15px) scale(1.02) !important;
+            box-shadow: 
+                0 40px 100px rgba(3, 164, 94, 0.15),
+                0 18px 50px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+            border-color: rgba(3, 164, 94, 0.25) !important;
+        }
+        
+        /* Premium card headers with sleep-themed icons */
+        .card-header {
+            position: relative;
+            z-index: 2;
+            padding: 25px 25px 20px 25px !important;
+        }
+        
+        .card-header i.fa-moon {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, var(--color-teal)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: moonPulse 4s ease-in-out infinite;
+            filter: drop-shadow(0 3px 10px rgba(99, 102, 241, 0.3)) !important;
+        }
+        
+        .card-header i.fa-chart-line {
+            background: linear-gradient(135deg, var(--color-teal), var(--color-light-green), #10b981) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: chartLineGrow 3s ease-in-out infinite;
+            filter: drop-shadow(0 3px 10px rgba(3, 164, 94, 0.3)) !important;
+        }
+        
+        .card-header i.fa-chart-pie {
+            background: linear-gradient(135deg, #f59e0b, #f97316, var(--color-light-green)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: pieRotate 6s linear infinite;
+            filter: drop-shadow(0 3px 10px rgba(245, 158, 11, 0.3)) !important;
+        }
+        
+        .card-header:hover i {
+            transform: scale(1.2) rotate(10deg) !important;
+            animation-duration: 1.5s !important;
+        }
+        
+        .card-header h3 {
+            background: linear-gradient(135deg, #1f2937, var(--color-teal), #374151) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            background-size: 200% 200% !important;
+            animation: cardTitleGradient 6s ease-in-out infinite;
+            font-size: 1.3rem !important;
+            margin-top: 10px !important;
+        }
+        
+        /* Spectacular form styling */
+        .log-sleep-form {
+            position: relative;
+            z-index: 2;
+            padding: 25px !important;
+        }
+        
+        .form-group {
+            animation: formGroupSlide 1s ease-out both;
+            position: relative;
+            margin-bottom: 25px !important;
+        }
+        
+        .form-group:nth-child(1) { animation-delay: 2s; }
+        .form-group:nth-child(2) { animation-delay: 2.2s; }
+        
+        .form-group label {
+            background: linear-gradient(135deg, #374151, var(--color-teal)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            display: block !important;
+            margin-bottom: 10px !important;
+            animation: labelGlow 4s ease-in-out infinite;
+        }
+        
+        .form-group input {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(248, 249, 250, 0.7) 100%
+            ) !important;
+            backdrop-filter: blur(10px) !important;
+            border: 2px solid rgba(3, 164, 94, 0.15) !important;
+            border-radius: 18px !important;
+            padding: 15px 20px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 16px !important;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        .form-group input:focus {
+            outline: none !important;
+            border-color: rgba(3, 164, 94, 0.4) !important;
+            transform: scale(1.02) !important;
+            box-shadow: 
+                0 8px 25px rgba(3, 164, 94, 0.15),
+                0 4px 15px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(248, 249, 250, 0.85) 100%
+            ) !important;
+            animation: inputGlow 2s ease-in-out infinite;
+        }
+        
+        /* Premium submit button */
+        .log-sleep-form button[type="submit"] {
+            background: linear-gradient(
+                135deg,
+                #6366f1 0%,
+                var(--color-teal) 50%,
+                var(--color-light-green) 100%
+            ) !important;
+            border: none !important;
+            border-radius: 22px !important;
+            padding: 18px 45px !important;
+            color: white !important;
+            font-weight: 600 !important;
+            font-size: 16px !important;
+            box-shadow: 
+                0 10px 30px rgba(99, 102, 241, 0.3),
+                0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+            animation: buttonEntrance 1s ease-out 2.4s both;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer !important;
+            width: 100% !important;
+        }
+        
+        .log-sleep-form button[type="submit"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: left 0.6s ease;
+        }
+        
+        .log-sleep-form button[type="submit"]:hover {
+            transform: translateY(-4px) scale(1.03) !important;
+            box-shadow: 
+                0 18px 40px rgba(99, 102, 241, 0.4),
+                0 8px 25px rgba(0, 0, 0, 0.15) !important;
+            animation: sleepButtonPulse 2s ease-in-out infinite;
+        }
+        
+        .log-sleep-form button[type="submit"]:hover::before {
+            left: 100%;
+        }
+        
+        /* Spectacular chart containers */
+        .chart-container {
+            position: relative;
+            padding: 25px !important;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(248, 249, 250, 0.6) 100%
+            ) !important;
+            border-radius: 25px !important;
+            backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(3, 164, 94, 0.08) !important;
+            box-shadow: inset 0 2px 10px rgba(3, 164, 94, 0.05) !important;
+            animation: chartContainerSlide 1.5s ease-out both;
+            overflow: hidden;
+        }
+        
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(3, 164, 94, 0.02) 0%, transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(99, 102, 241, 0.02) 0%, transparent 70%);
+            animation: chartParticles 18s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: 25px;
+        }
+        
+        .chart-container:hover {
+            transform: scale(1.01) !important;
+            box-shadow: 
+                inset 0 3px 15px rgba(3, 164, 94, 0.08),
+                0 8px 25px rgba(3, 164, 94, 0.1) !important;
+            border-color: rgba(3, 164, 94, 0.15) !important;
+        }
+        
+        .chart-container canvas {
+            position: relative;
+            z-index: 2;
+            border-radius: 20px !important;
+            animation: canvasEntrance 2s ease-out both;
+        }
+        
+        .card:nth-child(1) .chart-container { animation-delay: 1.8s; }
+        .card:nth-child(2) .chart-container { animation-delay: 2.1s; }
+        .card:nth-child(3) .chart-container { animation-delay: 2.4s; }
+        
+        .card:nth-child(1) .chart-container canvas { animation-delay: 2.2s; }
+        .card:nth-child(2) .chart-container canvas { animation-delay: 2.5s; }
+        .card:nth-child(3) .chart-container canvas { animation-delay: 2.8s; }
+        
+        /* Premium styling for the centered weekly summary card */
+        .card[style*="margin: 30px auto"] {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(248, 249, 250, 0.85) 50%,
+                rgba(255, 255, 255, 0.95) 100%
+            ) !important;
+            border: 3px solid rgba(3, 164, 94, 0.15) !important;
+            box-shadow: 
+                0 35px 90px rgba(0, 0, 0, 0.1),
+                0 15px 40px rgba(3, 164, 94, 0.12),
+                inset 0 2px 0 rgba(255, 255, 255, 1) !important;
+            animation: summaryCardEntrance 2s ease-out 2s both;
+        }
+        
+        .card[style*="margin: 30px auto"]:hover {
+            transform: translateY(-20px) scale(1.03) !important;
+            box-shadow: 
+                0 45px 110px rgba(3, 164, 94, 0.18),
+                0 20px 55px rgba(0, 0, 0, 0.12),
+                inset 0 2px 0 rgba(255, 255, 255, 1) !important;
+        }
+        
+        /* MASTERPIECE KEYFRAMES */
+        @keyframes sleepBackground {
+            0%, 100% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+            25% { background-position: 50% 0%, 50% 100%, 25% 25%; }
+            50% { background-position: 100% 50%, 0% 50%, 50% 50%; }
+            75% { background-position: 50% 100%, 50% 0%, 75% 75%; }
+        }
+        
+        @keyframes headerGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes headerShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(300%) rotate(45deg); }
+        }
+        
+        @keyframes navItemSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes sleepTitleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes titleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.9);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes sleepIconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(10deg); }
+        }
+        
+        @keyframes titleUnderlineShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes gridSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.98);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes gridParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        @keyframes cardSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(60px) scale(0.95) rotateX(-15deg);
+                filter: blur(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes cardParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(180deg); }
+        }
+        
+        @keyframes moonPulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 3px 10px rgba(99, 102, 241, 0.3)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 5px 15px rgba(99, 102, 241, 0.5)); }
+        }
+        
+        @keyframes chartLineGrow {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.1); }
+        }
+        
+        @keyframes pieRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes cardTitleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes formGroupSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px) scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes labelGlow {
+            0%, 100% { filter: drop-shadow(0 1px 3px rgba(3, 164, 94, 0.2)); }
+            50% { filter: drop-shadow(0 2px 6px rgba(3, 164, 94, 0.4)); }
+        }
+        
+        @keyframes inputGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 8px 25px rgba(3, 164, 94, 0.15),
+                    0 4px 15px rgba(0, 0, 0, 0.08);
+            }
+            50% { 
+                box-shadow: 
+                    0 12px 35px rgba(3, 164, 94, 0.2),
+                    0 6px 20px rgba(0, 0, 0, 0.1);
+            }
+        }
+        
+        @keyframes buttonEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(25px) scale(0.9);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes sleepButtonPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 18px 40px rgba(99, 102, 241, 0.4),
+                    0 8px 25px rgba(0, 0, 0, 0.15);
+            }
+            50% { 
+                box-shadow: 
+                    0 25px 55px rgba(99, 102, 241, 0.5),
+                    0 12px 35px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
+        @keyframes chartContainerSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes chartParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(180deg); }
+        }
+        
+        @keyframes canvasEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.9) rotateY(-10deg);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes summaryCardEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9) rotateX(-15deg);
+                filter: blur(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        /* Responsive masterpiece */
+        @media (max-width: 768px) {
+            .main-header-centered::before { display: none; }
+            .content-grid::before { display: none; }
+            .card::before { display: none; }
+            .chart-container::before { display: none; }
+            .log-sleep-form button[type="submit"]::before { display: none; }
+            
+            main header h1::after {
+                right: -20px;
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="brand-logo">
+                    <h2><a href="dashboard.html" style="text-decoration:none; color:inherit;">Clario</a></h2>
+                </div>
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display">User</span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown">
+                        <a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="ocd.html">OCD</a></li>
+                            <li><a href="panic.html">Panic Disorder</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                            <li><a href="face-analysis.html"><i class="fas fa-user-astronaut"></i> Face Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+           <header>
+             <h1>Sleep Tracker</h1>
+           </header>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-moon"></i>
+                        <h3>Log Your Sleep</h3>
+                    </div>
+                    <form id="log-sleep-form" class="log-sleep-form">
+                        <div class="form-group">
+                            <label for="sleep-date">Date:</label>
+                            <input type="date" id="sleep-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sleep-hours-input">Hours Slept:</label>
+                            <input type="number" id="sleep-hours-input" step="0.1" placeholder="e.g., 7.5" required>
+                        </div>
+                        <button type="submit">Add Log</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Weekly Sleep Pattern (Last 7 Days)</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="sleepTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin: 30px auto 0; max-width: 600px;">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Weekly Sleep Quality Summary</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="sleepQualityPieChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast-notification"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="sleeptracker.js"></script>
+    <script src="universal-language-system.js"></script>
+</body>
+</html>

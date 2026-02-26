@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bipolar Disorder | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="bipolar-optimized.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="brand-logo">
+                    <h2>Clario</h2>
+                </div>
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display"></span> | <a href="index.html" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown active">
+                        <a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+            <div class="content-article">
+                <header>
+                    <h1>Understanding Bipolar Disorder</h1>
+                </header>
+
+                <div class="article-layout">
+                    <nav class="toc card">
+                        <h2>Table of Contents</h2>
+                        <ul>
+                            <li><a href="#intro">Introduction</a></li>
+                            <li><a href="#types">Types of Bipolar Disorder</a></li>
+                            <li><a href="#symptoms">Symptoms</a></li>
+                            <li><a href="#causes">Causes</a></li>
+                            <li><a href="#diagnosis">Diagnosis</a></li>
+                            <li><a href="#treatment">Treatment</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="content-main">
+                        <section id="intro">
+                            <h2>Introduction</h2>
+                            <p>Bipolar Disorder is a complex mental health condition characterized by extreme shifts in mood, energy levels, and activity that significantly impact daily functioning. Previously known as manic-depressive illness, bipolar disorder involves episodes of mania (elevated mood) and depression that can last from days to months. These mood episodes are distinct from normal mood fluctuations and are severe enough to cause noticeable difficulties in relationships, work, or school.</p>
+                            <p>Understanding bipolar disorder is crucial because it affects approximately 2.8% of adults in the United States, with symptoms typically appearing in the late teens or early adult years. With proper diagnosis, treatment, and support, individuals with bipolar disorder can achieve mood stability and lead fulfilling lives.</p>
+                        </section>
+
+                        <section id="types">
+                            <h2>Types of Bipolar Disorder</h2>
+                            <p>Bipolar disorder is classified into several types based on the pattern and severity of mood episodes:</p>
+                            
+                            <h3>Bipolar I Disorder</h3>
+                            <p>Defined by at least one manic episode that lasts at least seven days or is severe enough to require immediate hospital care. Most people with Bipolar I also experience major depressive episodes, though depression is not required for this diagnosis.</p>
+                            
+                            <h3>Bipolar II Disorder</h3>
+                            <p>Characterized by a pattern of depressive episodes and hypomanic episodes (less severe than full mania). This type involves at least one major depressive episode and at least one hypomanic episode, but no full manic episodes.</p>
+                            
+                            <h3>Cyclothymic Disorder</h3>
+                            <p>A milder form of bipolar disorder involving numerous periods of hypomanic symptoms and numerous periods of depressive symptoms lasting for at least two years (one year in children and adolescents).</p>
+                            
+                            <h3>Other Specified and Unspecified Bipolar Disorders</h3>
+                            <p>Bipolar disorder symptoms that do not match the three categories above but still involve abnormal mood elevation outside normal mood variations.</p>
+                        </section>
+
+                        <section id="symptoms">
+                            <h2>Symptoms</h2>
+                            <p>Bipolar disorder involves distinct mood episodes with specific symptoms:</p>
+                            
+                            <h3>Manic Episode Symptoms</h3>
+                            <ul>
+                                <li>Abnormally elevated, expansive, or irritable mood</li>
+                                <li>Increased activity or energy that is abnormal</li>
+                                <li>Inflated self-esteem or grandiosity</li>
+                                <li>Decreased need for sleep (feeling rested after only 3 hours)</li>
+                                <li>More talkative than usual or pressure to keep talking</li>
+                                <li>Flight of ideas or racing thoughts</li>
+                                <li>Distractibility</li>
+                                <li>Increased goal-directed activity or psychomotor agitation</li>
+                                <li>Excessive involvement in risky activities</li>
+                            </ul>
+                            
+                            <h3>Hypomanic Episode Symptoms</h3>
+                            <ul>
+                                <li>Similar to manic symptoms but less severe</li>
+                                <li>Episode lasts at least four consecutive days</li>
+                                <li>Changes are observable by others</li>
+                                <li>Does not cause marked impairment in functioning</li>
+                                <li>Does not require hospitalization</li>
+                                <li>No psychotic features</li>
+                            </ul>
+                            
+                            <h3>Major Depressive Episode Symptoms</h3>
+                            <ul>
+                                <li>Depressed mood most of the day, nearly every day</li>
+                                <li>Markedly diminished interest or pleasure in activities</li>
+                                <li>Significant weight loss or weight gain</li>
+                                <li>Insomnia or hypersomnia nearly every day</li>
+                                <li>Psychomotor agitation or retardation</li>
+                                <li>Fatigue or loss of energy</li>
+                                <li>Feelings of worthlessness or excessive guilt</li>
+                                <li>Diminished ability to think or concentrate</li>
+                                <li>Recurrent thoughts of death or suicide</li>
+                            </ul>
+                        </section>
+
+                        <section id="causes">
+                            <h2>Causes</h2>
+                            <p>The exact cause of bipolar disorder remains unknown, but research suggests multiple factors contribute:</p>
+                            
+                            <h3>Genetic Factors</h3>
+                            <p>Bipolar disorder has a strong genetic component. First-degree relatives of someone with bipolar disorder are about 10 times more likely to develop the condition. Twin studies suggest heritability of approximately 60-80%.</p>
+                            
+                            <h3>Brain Structure and Chemistry</h3>
+                            <p>Neuroimaging studies show differences in brain structure and activity in people with bipolar disorder. Neurotransmitter imbalances, particularly involving dopamine, serotonin, and norepinephrine, play a role in mood regulation.</p>
+                            
+                            <h3>Environmental Triggers</h3>
+                            <p>Stressful life events, major life changes, substance abuse, and disrupted sleep patterns can trigger mood episodes in susceptible individuals. Seasonal changes may also influence mood cycling.</p>
+                            
+                            <h3>Medical Conditions</h3>
+                            <p>Certain medical conditions, medications, or substance use can trigger bipolar-like symptoms, emphasizing the importance of thorough medical evaluation.</p>
+                        </section>
+
+                        <section id="diagnosis">
+                            <h2>Diagnosis</h2>
+                            <p>Diagnosing bipolar disorder requires careful clinical evaluation:</p>
+                            
+                            <h3>Clinical Interview</h3>
+                            <p>A comprehensive psychiatric evaluation includes detailed history of mood episodes, family history, medical history, and assessment of current symptoms and functioning.</p>
+                            
+                            <h3>Mood Tracking</h3>
+                            <p>Patients may be asked to keep mood charts or diaries to track patterns of mood, sleep, and energy levels over time, which can help identify cycling patterns.</p>
+                            
+                            <h3>Medical Evaluation</h3>
+                            <p>Physical examination and laboratory tests rule out medical conditions that might cause mood symptoms, such as thyroid disorders or substance use effects.</p>
+                            
+                            <h3>Differential Diagnosis</h3>
+                            <p>Clinicians must distinguish bipolar disorder from other conditions like major depression, ADHD, borderline personality disorder, or substance-induced mood disorders.</p>
+                        </section>
+
+                        <section id="treatment">
+                            <h2>Treatment</h2>
+                            <p>Bipolar disorder treatment typically involves long-term management with multiple approaches:</p>
+                            
+                            <h3>Mood Stabilizers</h3>
+                            <p>Medications like lithium, valproate, and lamotrigine help prevent mood episodes and maintain stability. These are often the cornerstone of long-term treatment.</p>
+                            
+                            <h3>Antipsychotic Medications</h3>
+                            <p>Second-generation antipsychotics may be used for acute mania or as mood stabilizers. Examples include quetiapine, olanzapine, and aripiprazole.</p>
+                            
+                            <h3>Psychotherapy</h3>
+                            <p>Evidence-based therapies include Cognitive Behavioral Therapy (CBT), Interpersonal and Social Rhythm Therapy (IPSRT), and family-focused therapy, which help with medication adherence, recognizing early warning signs, and developing coping strategies.</p>
+                            
+                            <h3>Lifestyle Management</h3>
+                            <p>Regular sleep schedules, stress management, avoiding substance use, and maintaining social routines are crucial for preventing mood episodes and maintaining stability.</p>
+                            
+                            <h3>Crisis Planning</h3>
+                            <p>Developing a crisis plan with family, friends, and healthcare providers helps ensure rapid intervention during severe mood episodes and reduces the risk of hospitalization.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.script.js"></script>
+    <div id="toast-notification"></div>
+</body>
+</html>

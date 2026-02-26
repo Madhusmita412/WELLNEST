@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="journal-intro.css">
+    <link rel="stylesheet" href="journal-optimized.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="header-scroll.js" defer></script>
+    <script src="dashboard.script.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="user-info-right">
+                    <span data-translate="Logged in as:">Logged in as:</span> <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> <span data-translate="Logout">Logout</span></a>
+                </div>
+            </div>
+            <div class="brand-logo main-logo">
+                <img src="images/clario.png" alt="Clario Brain Logo " class="logo-img">
+            </div> 
+            <nav class="top-nav">
+                <ul>
+                    <li class="nav-logo">
+                        <img src="images/clario.png" alt="Clario Brain Logo" class="logo-img-small">
+                    </li>
+                    <li><a href="dashboard.html" title="Dashboard" data-translate-title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown">
+                        <a href="condition-az.html" data-translate="Condition A-Z">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html" data-translate="Anxiety">Anxiety</a></li>
+                            <li><a href="depression.html" data-translate="Depression">Depression</a></li>
+                            <li><a href="sleep-disorder.html" data-translate="Sleep Disorder">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html" data-translate="View More">View More</a></li>
+                            <li><a href="face-analysis.html"><i class="fas fa-user-astronaut"></i> <span data-translate="Face Analysis">Face Analysis</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="journal.html" data-translate="Journal">Journal</a></li>
+                    <li><a href="practice.html" data-translate="Wellness Practice">Wellness Practice</a></li>
+                    <li><a href="question.html" data-translate="Daily Question">Daily Question</a></li>
+                    <li><a href="quiz.html" data-translate="Quiz">Quiz</a></li>
+                    <li><a href="chat.html" data-translate="Chat with AI">Chat with AI</a></li>
+                    <li class="search-container">
+                        <div class="search-toggle" id="searchToggle">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                        <div class="search-box" id="searchBox">
+                            <input type="text" id="searchInput" placeholder="Search wellness topics..." data-translate-placeholder="Search wellness topics..." autocomplete="off">
+                            <div class="search-results" id="searchResults"></div>
+                            <button class="search-close" id="searchClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="language-container">
+                        <div class="language-toggle" id="languageToggle">
+                            <i class="fas fa-globe language-icon"></i>
+                            <span class="current-lang" id="currentLang" data-translate="EN">EN</span>
+                        </div>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" data-lang="en">
+                                <div class="flag-icon flag-en">🇺🇸</div>
+                                <span data-translate="English">English</span>
+                                <small data-translate="Default">Default</small>
+                            </div>
+                            <div class="language-option" data-lang="hi">
+                                <div class="flag-icon flag-hi">🇮🇳</div>
+                                <span>हिंदी</span>
+                                <small data-translate="Hindi">Hindi</small>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content-no-sidebar">
+            <div class="content-container-centered">
+                <h1 class="page-title" data-translate="Your Private Journal">Your Private Journal</h1>
+                <img src="images/journal-image.jpg" alt="Journal writing" class="journal-center-image" />
+                <div class="journal-intro">
+                    <p data-translate="📖 Your Journal - A Safe Space for Your Thoughts ✨">📖 Your Journal - A Safe Space for Your Thoughts ✨</p>
+                    <p data-translate="Writing in your journal is more than putting words on a page—it's an act of self-discovery and healing. It's your personal sanctuary, where you can freely express your feelings, release what weighs on your heart, and celebrate the little victories of your journey.">Writing in your journal is more than putting words on a page—it's an act of self-discovery and healing. It's your personal sanctuary, where you can freely express your feelings, release what weighs on your heart, and celebrate the little victories of your journey.</p>
+                    <p data-translate="Each entry is a step toward understanding yourself better, building resilience, and finding clarity in moments of doubt. Journaling allows you to transform your worries into wisdom, your dreams into goals, and your reflections into growth.">Each entry is a step toward understanding yourself better, building resilience, and finding clarity in moments of doubt. Journaling allows you to transform your worries into wisdom, your dreams into goals, and your reflections into growth.</p>
+                    <p class="highlight" data-translate="🌱 Every word you write is a seed planted for a stronger, brighter, and more mindful you.">🌱 Every word you write is a seed planted for a stronger, brighter, and more mindful you.</p>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-pencil-alt"></i>
+                            <h3 data-translate="New Entry">New Entry</h3>
+                        </div>
+                        <form id="journal-form" class="log-sleep-form">
+                            <div class="form-group">
+                                <label for="journal-title" data-translate="Title:">Title:</label>
+                                <input type="text" id="journal-title" placeholder="e.g., A Good Day" data-translate-placeholder="e.g., A Good Day" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="journal-content" data-translate="Content:">Content:</label>
+                                <textarea id="journal-content" rows="10" placeholder="Write your thoughts here..." data-translate-placeholder="Write your thoughts here..." required></textarea>
+                            </div>
+                            <button type="submit" data-translate="Save Entry">Save Entry</button>
+                        </form>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-book-open"></i>
+                            <h3 data-translate="Past Entries">Past Entries</h3>
+                        </div>
+                        <div id="past-entries-container">
+                            <p data-translate="Loading your journal entries...">Loading your journal entries...</p> </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section - Footer Style -->
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-brand">
+                        <div class="about-logo">
+                            <img src="images/clario.png" alt="Clario" class="about-logo-img">
+                            <h2 data-translate="Clario">Clario</h2>
+                        </div>
+                        <div class="certification-badge">
+                            <div class="badge-circle">
+                                <span class="badge-letter">C</span>
+                            </div>
+                            <div class="badge-text">
+                                <p data-translate="Certified">Certified</p>
+                                <small data-translate="Platform certification">This platform meets high standards of mental health and wellness support.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-columns">
+                        <div class="about-column">
+                            <h3 data-translate="Services">Services</h3>
+                            <ul>
+                                <li><a href="anxiety.html"><i class="fas fa-leaf"></i> <span data-translate="Anxiety Support">Anxiety Support</span></a></li>
+                                <li><a href="depression.html"><i class="fas fa-leaf"></i> <span data-translate="Depression Care">Depression Care</span></a></li>
+                                <li><a href="sleeptracker.html"><i class="fas fa-leaf"></i> <span data-translate="Sleep Wellness">Sleep Wellness</span></a></li>
+                                <li><a href="practice.html"><i class="fas fa-leaf"></i> <span data-translate="Mindfulness Practice">Mindfulness Practice</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Resources">Resources</h3>
+                            <ul>
+                                <li><a href="condition-az.html" data-translate="Mental Health A-Z">Mental Health A-Z</a></li>
+                                <li><a href="panic.html" data-translate="Crisis Support">Crisis Support</a></li>
+                                <li><a href="ocd.html" data-translate="OCD Resources">OCD Resources</a></li>
+                                <li><a href="gaslighting.html" data-translate="Relationship Support">Relationship Support</a></li>
+                                <li><a href="face-analysis.html" data-translate="Emotion Analysis">Emotion Analysis</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Tools">Tools</h3>
+                            <ul>
+                                <li><a href="journal.html" data-translate="Daily Journal">Daily Journal</a></li>
+                                <li><a href="question.html" data-translate="Check-in Questions">Check-in Questions</a></li>
+                                <li><a href="quiz.html" data-translate="Wellness Assessments">Wellness Assessments</a></li>
+                                <li><a href="chat.html" data-translate="AI Chat Support">AI Chat Support</a></li>
+                                <li><a href="attachment.html" data-translate="Attachment Insights">Attachment Insights</a></li>
+                                <li><a href="emotion.html" data-translate="Emotion Tracking">Emotion Tracking</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Quick Links">Quick Links</h3>
+                            <ul>
+                                <li><a href="dashboard.html" data-translate="About Us">About Us</a></li>
+                                <li><a href="#case-study" data-translate="Success Stories">Success Stories</a></li>
+                                <li><a href="#knowledge" data-translate="Wellness Library">Wellness Library</a></li>
+                                <li><a href="#careers" data-translate="Join Our Team">Join Our Team</a></li>
+                                <li><a href="#partner" data-translate="Become a Partner">Become a Partner</a></li>
+                                <li><a href="#connect" data-translate="Connect With Us">Connect With Us</a></li>
+                                <li><a href="#news" data-translate="Latest Updates">Latest Updates</a></li>
+                                <li><a href="#legal" data-translate="Privacy & Terms">Privacy & Terms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Large Background Text -->
+                <div class="about-background-text" data-translate="Clario">Clario</div>
+
+                <!-- Footer Bottom -->
+                <div class="about-footer">
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright" data-translate="Copyright">© 2025 Clario Mental Wellness Solutions Private Limited</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="toast-notification"></div>
+    <script src="journal.js" defer></script>
+    <script src="universal-language-system.js"></script>
+</body>
+</html>

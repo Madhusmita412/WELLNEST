@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Quiz | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="quiz.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="header-scroll.js" defer></script>
+    <script src="dashboard.script.js" defer></script>
+    <style>
+        /* MASTERPIECE QUIZ SYSTEM ANIMATIONS */
+        
+        body {
+            overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(3, 164, 94, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 50% 10%, rgba(245, 158, 11, 0.02) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(248, 249, 250, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
+            animation: quizBackground 45s ease-in-out infinite;
+        }
+        
+        /* Spectacular header effects */
+        .main-header-centered {
+            position: relative;
+            background: linear-gradient(
+                135deg, 
+                var(--color-teal) 0%, 
+                var(--color-light-green) 50%,
+                var(--color-teal) 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            animation: headerGradientShift 8s ease-in-out infinite;
+            box-shadow: 
+                0 8px 32px rgba(3, 164, 94, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .main-header-centered::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: headerShine 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Premium navigation */
+        .top-nav ul li {
+            animation: navItemSlide 1s ease-out both;
+        }
+        
+        .top-nav ul li:nth-child(1) { animation-delay: 0.1s; }
+        .top-nav ul li:nth-child(2) { animation-delay: 0.2s; }
+        .top-nav ul li:nth-child(3) { animation-delay: 0.3s; }
+        .top-nav ul li:nth-child(4) { animation-delay: 0.4s; }
+        .top-nav ul li:nth-child(5) { animation-delay: 0.5s; }
+        .top-nav ul li:nth-child(6) { animation-delay: 0.6s; }
+        .top-nav ul li:nth-child(7) { animation-delay: 0.7s; }
+        .top-nav ul li:nth-child(8) { animation-delay: 0.8s; }
+        
+        .top-nav ul li.active a {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-2px) scale(1.05) !important;
+            animation: activeNavGlow 3s ease-in-out infinite;
+        }
+        
+        /* Spectacular page title */
+        .page-title {
+            background: linear-gradient(
+                135deg,
+                var(--color-teal) 0%,
+                #a855f7 50%,
+                #f59e0b 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: quizTitleGradient 8s ease-in-out infinite, titleEntrance 1.5s ease-out;
+            text-shadow: 0 4px 20px rgba(3, 164, 94, 0.3) !important;
+            position: relative;
+            display: inline-block;
+            font-size: 2.8rem !important;
+        }
+        
+        .page-title::after {
+            content: '🧠✨';
+            position: absolute;
+            top: -10px;
+            right: -60px;
+            font-size: 1.8rem;
+            animation: quizIconFloat 5s ease-in-out infinite;
+        }
+        
+        .page-title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-teal), #a855f7, #f59e0b, var(--color-teal));
+            background-size: 300% 100%;
+            border-radius: 3px;
+            animation: quizTitleUnderline 6s ease-in-out infinite;
+        }
+        
+        /* Premium quiz layout */
+        .quiz-layout {
+            animation: layoutSlideIn 1.5s ease-out 0.8s both;
+            position: relative;
+        }
+        
+        .quiz-layout::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(3, 164, 94, 0.01) 0%, transparent 60%),
+                radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.01) 0%, transparent 60%);
+            animation: layoutParticles 30s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Spectacular quiz list card */
+        .quiz-list-card {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(248, 249, 250, 0.8) 50%,
+                rgba(255, 255, 255, 0.9) 100%
+            ) !important;
+            backdrop-filter: blur(25px) !important;
+            border-radius: 35px !important;
+            border: 2px solid rgba(3, 164, 94, 0.15) !important;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.08),
+                0 12px 35px rgba(3, 164, 94, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+            animation: quizListSlideIn 1.5s ease-out 1.2s both;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-list-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(3, 164, 94, 0.03) 0%, transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.03) 0%, transparent 70%);
+            animation: quizListParticles 25s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: 35px;
+        }
+        
+        .quiz-list-card:hover {
+            transform: translateY(-10px) scale(1.02) !important;
+            box-shadow: 
+                0 40px 100px rgba(3, 164, 94, 0.15),
+                0 18px 50px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+            border-color: rgba(3, 164, 94, 0.25) !important;
+        }
+        
+        /* Premium quiz list header */
+        .quiz-list-header {
+            position: relative;
+            z-index: 2;
+            padding: 25px 25px 15px 25px !important;
+        }
+        
+        .quiz-list-title {
+            background: linear-gradient(135deg, var(--color-teal), #a855f7) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            background-size: 200% 200% !important;
+            animation: quizListTitleGradient 6s ease-in-out infinite;
+            font-size: 1.4rem !important;
+            font-weight: 700 !important;
+            text-align: center !important;
+            letter-spacing: 1px !important;
+            position: relative;
+        }
+        
+        .quiz-list-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-teal), #a855f7, var(--color-teal));
+            border-radius: 2px;
+            animation: quizTitleUnderlinePulse 3s ease-in-out infinite;
+        }
+        
+        /* Spectacular quiz list items */
+        .quiz-list-card ul {
+            position: relative;
+            z-index: 2;
+            padding: 15px 20px 25px 20px !important;
+            list-style: none !important;
+            margin: 0 !important;
+        }
+        
+        .quiz-list-card ul li {
+            animation: quizItemSlide 1s ease-out both;
+            margin-bottom: 15px !important;
+        }
+        
+        .quiz-list-card ul li:nth-child(1) { animation-delay: 1.5s; }
+        .quiz-list-card ul li:nth-child(2) { animation-delay: 1.7s; }
+        .quiz-list-card ul li:nth-child(3) { animation-delay: 1.9s; }
+        
+        .quiz-list-card ul li a {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 20px 25px !important;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(248, 249, 250, 0.6) 100%
+            ) !important;
+            border-radius: 25px !important;
+            border: 2px solid rgba(3, 164, 94, 0.1) !important;
+            text-decoration: none !important;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+        }
+        
+        .quiz-list-card ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(3, 164, 94, 0.08),
+                transparent
+            );
+            transition: left 0.6s ease;
+        }
+        
+        .quiz-list-card ul li a:hover {
+            transform: translateX(8px) scale(1.02) !important;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(248, 249, 250, 0.8) 100%
+            ) !important;
+            border-color: rgba(3, 164, 94, 0.25) !important;
+            box-shadow: 
+                0 15px 40px rgba(3, 164, 94, 0.1),
+                0 6px 20px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+        }
+        
+        .quiz-list-card ul li a:hover::before {
+            left: 100%;
+        }
+        
+        .quiz-list-text h3 {
+            color: #374151 !important;
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+            margin: 0 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .quiz-list-card ul li a:hover .quiz-list-text h3 {
+            background: linear-gradient(135deg, var(--color-teal), #a855f7) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+        
+        .quiz-list-icon i {
+            font-size: 1.5rem !important;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+        }
+        
+        .quiz-list-icon i.fa-smile {
+            color: #f59e0b !important;
+            filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3)) !important;
+        }
+        
+        .quiz-list-icon i.fa-lock {
+            color: #a855f7 !important;
+            filter: drop-shadow(0 2px 8px rgba(168, 85, 247, 0.3)) !important;
+        }
+        
+        .quiz-list-icon i.fa-bolt {
+            color: #ef4444 !important;
+            filter: drop-shadow(0 2px 8px rgba(239, 68, 68, 0.3)) !important;
+        }
+        
+        .quiz-list-card ul li a:hover .quiz-list-icon i {
+            transform: rotate(15deg) scale(1.3) !important;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+        
+        /* Premium main content */
+        .quiz-main-content {
+            animation: mainContentSlide 1.5s ease-out 1.5s both;
+            position: relative;
+        }
+        
+        .quiz-main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 40%, rgba(245, 158, 11, 0.02) 0%, transparent 60%),
+                radial-gradient(circle at 80% 60%, rgba(3, 164, 94, 0.02) 0%, transparent 60%);
+            animation: mainContentParticles 28s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Spectacular quiz header image */
+        .quiz-image-container {
+            animation: imageContainerSlide 1.5s ease-out 1.8s both;
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px !important;
+        }
+        
+        .quiz-header-image {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            border-radius: 30px !important;
+            filter: drop-shadow(0 20px 40px rgba(3, 164, 94, 0.12)) !important;
+            position: relative;
+        }
+        
+        .quiz-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(3, 164, 94, 0.05) 0%,
+                transparent 50%,
+                rgba(168, 85, 247, 0.05) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            border-radius: 30px;
+        }
+        
+        .quiz-image-container:hover::before {
+            opacity: 1;
+        }
+        
+        .quiz-image-container:hover .quiz-header-image {
+            transform: scale(1.05) rotate(2deg) !important;
+            filter: drop-shadow(0 30px 60px rgba(3, 164, 94, 0.2)) !important;
+        }
+        
+        /* Premium info box */
+        .info-box {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(248, 249, 250, 0.7) 100%
+            ) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 30px !important;
+            border: 2px solid rgba(3, 164, 94, 0.1) !important;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.06),
+                0 8px 25px rgba(3, 164, 94, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+            animation: infoBoxSlide 1.5s ease-out 2.1s both;
+            position: relative;
+            overflow: hidden;
+            padding: 30px !important;
+            margin: 25px 0 !important;
+        }
+        
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(3, 164, 94, 0.02) 0%, transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.02) 0%, transparent 70%);
+            animation: infoBoxParticles 20s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: 30px;
+        }
+        
+        .info-box p {
+            position: relative;
+            z-index: 2;
+            color: #374151 !important;
+            line-height: 1.7 !important;
+            font-size: 1.1rem !important;
+            margin: 0 !important;
+            animation: textTypewriter 2s ease-out 2.5s both;
+        }
+        
+        /* Spectacular results card */
+        .card {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(248, 249, 250, 0.8) 100%
+            ) !important;
+            backdrop-filter: blur(25px) !important;
+            border-radius: 35px !important;
+            border: 2px solid rgba(3, 164, 94, 0.12) !important;
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.08),
+                0 12px 35px rgba(3, 164, 94, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+            animation: resultsCardSlide 1.5s ease-out 2.4s both;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.02) 0%, transparent 60%),
+                radial-gradient(circle at 75% 75%, rgba(3, 164, 94, 0.02) 0%, transparent 60%);
+            animation: cardParticles 22s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: 35px;
+        }
+        
+        .card:hover {
+            transform: translateY(-12px) scale(1.02) !important;
+            box-shadow: 
+                0 40px 100px rgba(3, 164, 94, 0.15),
+                0 18px 50px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+            border-color: rgba(3, 164, 94, 0.25) !important;
+        }
+        
+        .card-header {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-header i.fa-history {
+            background: linear-gradient(135deg, #6366f1, var(--color-teal)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: historyIconSpin 8s linear infinite;
+            filter: drop-shadow(0 3px 10px rgba(99, 102, 241, 0.3)) !important;
+        }
+        
+        .card-header h3 {
+            background: linear-gradient(135deg, #374151, var(--color-teal)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            background-size: 200% 200% !important;
+            animation: cardTitleGradient 6s ease-in-out infinite;
+        }
+        
+        #past-results-container {
+            position: relative;
+            z-index: 2;
+            animation: resultsContainerSlide 1s ease-out 2.8s both;
+        }
+        
+        /* MASTERPIECE KEYFRAMES */
+        @keyframes quizBackground {
+            0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 0% 0%; }
+            25% { background-position: 50% 0%, 50% 100%, 100% 50%, 25% 25%; }
+            50% { background-position: 100% 50%, 0% 50%, 50% 100%, 50% 50%; }
+            75% { background-position: 50% 100%, 50% 0%, 0% 50%, 75% 75%; }
+        }
+        
+        @keyframes headerGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes headerShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(300%) rotate(45deg); }
+        }
+        
+        @keyframes navItemSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes activeNavGlow {
+            0%, 100% { 
+                box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5), 0 0 20px rgba(3, 164, 94, 0.3);
+            }
+        }
+        
+        @keyframes quizTitleGradient {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 50% 0%; }
+            66% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes titleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px) scale(0.8);
+                filter: blur(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes quizIconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            33% { transform: translateY(-8px) rotate(10deg) scale(1.1); }
+            66% { transform: translateY(4px) rotate(-5deg) scale(0.95); }
+        }
+        
+        @keyframes quizTitleUnderline {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes layoutSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+                filter: blur(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes layoutParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(180deg); }
+        }
+        
+        @keyframes quizListSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-60px) scale(0.9) rotateY(-15deg);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes quizListParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        @keyframes quizListTitleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes quizTitleUnderlinePulse {
+            0%, 100% { transform: translateX(-50%) scaleX(1); }
+            50% { transform: translateX(-50%) scaleX(1.2); }
+        }
+        
+        @keyframes quizItemSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px) scale(0.95);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes iconBounce {
+            0%, 100% { transform: rotate(15deg) scale(1.3); }
+            50% { transform: rotate(25deg) scale(1.4); }
+        }
+        
+        @keyframes mainContentSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(60px) scale(0.9) rotateY(15deg);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes mainContentParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(180deg); }
+        }
+        
+        @keyframes imageContainerSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes infoBoxSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+                filter: blur(6px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes infoBoxParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(180deg); }
+        }
+        
+        @keyframes textTypewriter {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes resultsCardSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95) rotateX(-10deg);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes cardParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(180deg); }
+        }
+        
+        @keyframes historyIconSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes cardTitleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes resultsContainerSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive masterpiece */
+        @media (max-width: 768px) {
+            .main-header-centered::before { display: none; }
+            .layout::before { display: none; }
+            .quiz-list-card::before { display: none; }
+            .quiz-main-content::before { display: none; }
+            .info-box::before { display: none; }
+            .card::before { display: none; }
+            .quiz-list-card ul li a::before { display: none; }
+            
+            .page-title::after {
+                right: -30px;
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <div class="brand-logo main-logo">
+                <img src="images/clario.png" alt="Clario Brain Logo " class="logo-img">
+            </div> 
+            <nav class="top-nav">
+                <ul>
+                    <li class="nav-logo">
+                        <img src="images/clario.png" alt="Clario Brain Logo" class="logo-img-small">
+                    </li>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown">
+                        <a href="condition-az.html" data-translate="Condition A-Z">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html" data-translate="Anxiety">Anxiety</a></li>
+                            <li><a href="depression.html" data-translate="Depression">Depression</a></li>
+                            <li><a href="sleep-disorder.html" data-translate="Sleep Disorder">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html" data-translate="View More">View More</a></li>
+                            <li><a href="face-analysis.html"><i class="fas fa-user-astronaut"></i> <span data-translate="Face Analysis">Face Analysis</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html" data-translate="Journal">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html" data-translate="Wellness Practice">Wellness Practice</a></li>
+                    <li><a href="question.html" data-translate="Daily Question">Daily Question</a></li>
+                     <li class="active"><a href="quiz.html" data-translate="Quiz">Quiz</a></li>
+                    <li><a href="chat.html" data-translate="Chat with AI">Chat with AI</a></li>
+                    <li class="language-container">
+                        <div class="language-toggle" id="languageToggle">
+                            <i class="fas fa-globe language-icon"></i>
+                            <span class="current-lang" id="currentLang" data-translate="EN">EN</span>
+                        </div>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" data-lang="en">
+                                <div class="flag-icon flag-en">🇺🇸</div>
+                                <span data-translate="English">English</span>
+                                <small data-translate="Default">Default</small>
+                            </div>
+                            <div class="language-option" data-lang="hi">
+                                <div class="flag-icon flag-hi">🇮🇳</div>
+                                <span>हिंदी</span>
+                                <small data-translate="Hindi">Hindi</small>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content-no-sidebar">
+            <header>
+                <h1 class="page-title" data-translate="Wellness Quizzes">Wellness Quizzes</h1>
+            </header>
+
+            <div class="quiz-layout">
+                
+                <aside class="quiz-list-card">
+                    <div class="quiz-list-header">
+                        <h2 class="quiz-list-title" data-translate="TAKE A QUIZ">TAKE A QUIZ</h2>
+                    </div>
+                    <ul>
+                        <li><a href="emotion.html">
+                            <div class="quiz-list-text"><h3 data-translate="What Emotion Are You?">What Emotion Are You?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-smile"></i></div>
+                        </a></li>
+                        <li><a href="attachment.html">
+                            <div class="quiz-list-text"><h3 data-translate="What's Your Attachment Style?">What's Your Attachment Style?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-lock"></i></div>
+                        </a></li>
+                        <li><a href="gaslighting.html">
+                            <div class="quiz-list-text"><h3 data-translate="Are You Being Gaslighted?">Are You Being Gaslighted?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-bolt"></i></div>
+                        </a></li>
+                    </ul>
+                </aside>
+
+                <div class="quiz-main-content">
+                    <div class="quiz-image-container">
+                        <img src="images/wellness-solution-idea.jpg" alt="Solution solving problem, creativity idea and innovation illustration" class="quiz-header-image">
+                    </div>
+                    <div class="info-box">
+                        <p data-translate="quiz-description">A quiz can't tell you everything you need to know about yourself, but it can help provide insight into some of your personality traits, behaviors, and how you view and respond to the world around you. If you're curious about a particular aspect of your personality or something that's going on in your life and relationships, try out one of our quizzes below to find out more about what your thoughts and feelings may say about you.</p>
+                    </div>
+                    <div class="card" style="margin-top: 30px;">
+                        <div class="card-header"><i class="fas fa-history"></i><h3 data-translate="Your Past Quiz Results">Your Past Quiz Results</h3></div>
+                        <div id="past-results-container">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- About Section - Footer Style -->
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-brand">
+                        <div class="about-logo">
+                            <img src="images/clario.png" alt="Clario" class="about-logo-img">
+                            <h2 data-translate="Clario">Clario</h2>
+                        </div>
+                        <div class="certification-badge">
+                            <div class="badge-circle">
+                                <span class="badge-letter">C</span>
+                            </div>
+                            <div class="badge-text">
+                                <p data-translate="Certified">Certified</p>
+                                <small data-translate="Platform certification">This platform meets high standards of mental health and wellness support.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-columns">
+                        <div class="about-column">
+                            <h3 data-translate="Services">Services</h3>
+                            <ul>
+                                <li><a href="anxiety.html"><i class="fas fa-leaf"></i> <span data-translate="Anxiety Support">Anxiety Support</span></a></li>
+                                <li><a href="depression.html"><i class="fas fa-leaf"></i> <span data-translate="Depression Care">Depression Care</span></a></li>
+                                <li><a href="sleeptracker.html"><i class="fas fa-leaf"></i> <span data-translate="Sleep Wellness">Sleep Wellness</span></a></li>
+                                <li><a href="practice.html"><i class="fas fa-leaf"></i> <span data-translate="Mindfulness Practice">Mindfulness Practice</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Resources">Resources</h3>
+                            <ul>
+                                <li><a href="condition-az.html" data-translate="Mental Health A-Z">Mental Health A-Z</a></li>
+                                <li><a href="panic.html" data-translate="Crisis Support">Crisis Support</a></li>
+                                <li><a href="ocd.html" data-translate="OCD Resources">OCD Resources</a></li>
+                                <li><a href="gaslighting.html" data-translate="Relationship Support">Relationship Support</a></li>
+                                <li><a href="face-analysis.html" data-translate="Emotion Analysis">Emotion Analysis</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Tools">Tools</h3>
+                            <ul>
+                                <li><a href="journal.html" data-translate="Daily Journal">Daily Journal</a></li>
+                                <li><a href="question.html" data-translate="Check-in Questions">Check-in Questions</a></li>
+                                <li><a href="quiz.html" data-translate="Wellness Assessments">Wellness Assessments</a></li>
+                                <li><a href="chat.html" data-translate="AI Chat Support">AI Chat Support</a></li>
+                                <li><a href="attachment.html" data-translate="Attachment Insights">Attachment Insights</a></li>
+                                <li><a href="emotion.html" data-translate="Emotion Tracking">Emotion Tracking</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Quick Links">Quick Links</h3>
+                            <ul>
+                                <li><a href="dashboard.html" data-translate="About Us">About Us</a></li>
+                                <li><a href="#case-study" data-translate="Success Stories">Success Stories</a></li>
+                                <li><a href="#knowledge" data-translate="Wellness Library">Wellness Library</a></li>
+                                <li><a href="#careers" data-translate="Join Our Team">Join Our Team</a></li>
+                                <li><a href="#partner" data-translate="Become a Partner">Become a Partner</a></li>
+                                <li><a href="#connect" data-translate="Connect With Us">Connect With Us</a></li>
+                                <li><a href="#news" data-translate="Latest Updates">Latest Updates</a></li>
+                                <li><a href="#legal" data-translate="Privacy & Terms">Privacy & Terms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Large Background Text -->
+                <div class="about-background-text" data-translate="Clario">Clario</div>
+
+                <!-- Footer Bottom -->
+                <div class="about-footer">
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright" data-translate="Copyright">© 2025 Clario Mental Wellness Solutions Private Limited</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Language Loading Overlay -->
+    <div class="language-loading" id="languageLoading">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3 id="loadingText">Switching Language...</h3>
+            <p id="loadingDesc">Please wait while we update the interface</p>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script> 
+    <script src="universal-language-system.js"></script>
+    <div id="toast-notification"></div>
+</body>
+</html>

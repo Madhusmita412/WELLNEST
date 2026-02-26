@@ -1,0 +1,242 @@
+/* Image Hover Zoom Effects */
+img {
+    transition: transform 0.3s ease !important;
+    cursor: pointer;
+}
+
+img:hover {
+    transform: scale(1.1) !important;
+}
+
+/* --- Gaslighting Quiz Page Specific Styles --- */
+
+/* This hides the main navigation sidebar on this specific page */
+.main-content-with-sidebar {
+    display: none;
+}
+
+/* Main layout container for the quiz page */
+.quiz-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styles for the "TAKE A QUIZ" list card (left side) */
+.quiz-list-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+    position: sticky;
+    top: 24px;
+    height: fit-content;
+    margin: 0;
+}
+
+.quiz-list-title {
+    font-size: 1em;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.quiz-list-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-list-card li {
+    margin-bottom: 0;
+}
+
+.quiz-list-card li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+    font-size: 0.96em;
+}
+
+.quiz-list-card li:first-child a {
+    padding-top: 0;
+}
+
+.quiz-list-card li:last-child a {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.quiz-list-card li a:hover {
+    background-color: #f8f9fa;
+}
+
+.quiz-list-text {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.quiz-list-text h3 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.quiz-list-icon {
+    font-size: 1.4em;
+    color: #2E4C4C;
+}
+
+/* Specific icon colors for gaslighting */
+.quiz-list-card li:nth-child(3) .quiz-list-text h3 {
+    color: #dc2626;
+}
+
+.quiz-list-card li:nth-child(3) .quiz-list-icon {
+    color: #dc2626;
+}
+
+/* Styles for the main quiz content area (right side) */
+.quiz-main-content {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-container {
+    padding: 30px;
+}
+
+.quiz-intro-box {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+#quiz-progress {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.quiz-question {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.quiz-question p {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quiz-option {
+    margin-bottom: 15px;
+}
+
+.quiz-option label {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quiz-option label:hover {
+    background-color: #e9ecef;
+}
+
+.quiz-option input[type="radio"] {
+    margin-right: 12px;
+    width: 18px;
+    height: 18px;
+    accent-color: #dc2626;
+}
+
+.quiz-option label span {
+    font-size: 1em;
+    color: #4a5568;
+}
+
+.quiz-navigation {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card-button:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.card-button {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 25px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+}
+
+.card-button:hover {
+    background-color: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(220, 38, 38, 0.25);
+}
+
+.card-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(220, 38, 38, 0.2);
+}
+
+/* --- Responsive styles for the quiz page --- */
+@media (max-width: 1024px) {
+    .quiz-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 97vw;
+    }
+    .quiz-list-card {
+        position: static;
+        max-width: 100%;
+        margin-bottom: 18px;
+    }
+}

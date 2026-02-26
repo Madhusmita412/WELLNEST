@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="adhd-optimized.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="brand-logo">
+                    <h2>Clario</h2>
+                </div>
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display"></span> | <a href="index.html" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown active">
+                        <a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+            <div class="content-article">
+                <header>
+                    <h1>Understanding ADHD</h1>
+                </header>
+
+                <div class="article-layout">
+                    <nav class="toc card">
+                        <h2>Table of Contents</h2>
+                        <ul>
+                            <li><a href="#intro">Introduction</a></li>
+                            <li><a href="#types">Types of ADHD</a></li>
+                            <li><a href="#symptoms">Symptoms</a></li>
+                            <li><a href="#causes">Causes</a></li>
+                            <li><a href="#diagnosis">Diagnosis</a></li>
+                            <li><a href="#treatment">Treatment</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="content-main">
+                        <section id="intro">
+                            <h2>Introduction</h2>
+                            <p>Attention Deficit Hyperactivity Disorder (ADHD) is a neurodevelopmental condition characterized by persistent patterns of inattention, hyperactivity, and impulsivity that interfere with functioning or development. ADHD affects millions of children and adults worldwide, presenting unique challenges in academic, work, and social environments. While often misunderstood as simply a lack of focus or discipline, ADHD is a complex neurobiological condition with distinct patterns of brain activity and development.</p>
+                            <p>Understanding ADHD requires recognizing that it's not a character flaw or result of poor parenting, but rather a legitimate medical condition that affects executive functioning, attention regulation, and impulse control. With proper diagnosis, treatment, and support, individuals with ADHD can lead successful and fulfilling lives.</p>
+                        </section>
+
+                        <section id="types">
+                            <h2>Types of ADHD</h2>
+                            <p>ADHD is classified into three primary presentations based on the predominant symptoms:</p>
+                            
+                            <h3>Predominantly Inattentive Presentation</h3>
+                            <p>Individuals with this presentation primarily struggle with attention and focus rather than hyperactivity. They may appear daydreamy, easily distracted, and have difficulty organizing tasks and activities. This presentation is often underdiagnosed, particularly in girls and women.</p>
+                            
+                            <h3>Predominantly Hyperactive-Impulsive Presentation</h3>
+                            <p>This presentation is characterized by excessive hyperactivity and impulsivity with fewer attention problems. Individuals may appear restless, talk excessively, interrupt others, and have difficulty waiting their turn.</p>
+                            
+                            <h3>Combined Presentation</h3>
+                            <p>The most common presentation, where individuals exhibit significant symptoms of both inattention and hyperactivity-impulsivity. This presentation typically receives the most attention and research focus.</p>
+                        </section>
+
+                        <section id="symptoms">
+                            <h2>Symptoms</h2>
+                            <p>ADHD symptoms vary between individuals and can change over time. Symptoms are organized into two main categories:</p>
+                            
+                            <h3>Inattention Symptoms</h3>
+                            <ul>
+                                <li>Difficulty sustaining attention in tasks or play activities</li>
+                                <li>Frequent careless mistakes in schoolwork or other activities</li>
+                                <li>Appears not to listen when spoken to directly</li>
+                                <li>Fails to follow through on instructions or finish tasks</li>
+                                <li>Difficulty organizing tasks and activities</li>
+                                <li>Avoids tasks requiring sustained mental effort</li>
+                                <li>Often loses things necessary for tasks</li>
+                                <li>Easily distracted by extraneous stimuli</li>
+                                <li>Forgetful in daily activities</li>
+                            </ul>
+                            
+                            <h3>Hyperactivity-Impulsivity Symptoms</h3>
+                            <ul>
+                                <li>Fidgets with hands or feet or squirms in seat</li>
+                                <li>Leaves seat when remaining seated is expected</li>
+                                <li>Runs or climbs excessively in inappropriate situations</li>
+                                <li>Unable to play or engage in leisure activities quietly</li>
+                                <li>Acts as if "driven by a motor"</li>
+                                <li>Talks excessively</li>
+                                <li>Blurts out answers before questions are completed</li>
+                                <li>Has difficulty waiting their turn</li>
+                                <li>Interrupts or intrudes on others</li>
+                            </ul>
+                        </section>
+
+                        <section id="causes">
+                            <h2>Causes</h2>
+                            <p>ADHD is a complex condition with multiple contributing factors:</p>
+                            
+                            <h3>Genetic Factors</h3>
+                            <p>ADHD has a strong genetic component, with heritability estimates ranging from 70-80%. Family studies show that ADHD runs in families, and several genes have been identified as potential contributors to the condition.</p>
+                            
+                            <h3>Brain Structure and Function</h3>
+                            <p>Neuroimaging studies reveal differences in brain structure and activity in individuals with ADHD, particularly in areas responsible for executive functioning, attention, and impulse control, including the prefrontal cortex and basal ganglia.</p>
+                            
+                            <h3>Environmental Factors</h3>
+                            <p>While genetics play the primary role, environmental factors may contribute to ADHD development or severity, including prenatal exposure to alcohol or tobacco, premature birth, low birth weight, and early brain injury.</p>
+                        </section>
+
+                        <section id="diagnosis">
+                            <h2>Diagnosis</h2>
+                            <p>ADHD diagnosis involves a comprehensive evaluation process:</p>
+                            
+                            <h3>Clinical Assessment</h3>
+                            <p>A qualified healthcare provider conducts interviews with the individual and family members, reviews medical history, and uses standardized rating scales to assess symptoms across different settings.</p>
+                            
+                            <h3>Diagnostic Criteria</h3>
+                            <p>The diagnosis follows specific criteria from the DSM-5, requiring symptoms to be present before age 12, occur in multiple settings, significantly impair functioning, and not be better explained by another condition.</p>
+                            
+                            <h3>Ruling Out Other Conditions</h3>
+                            <p>The evaluation process includes ruling out other conditions that may mimic ADHD symptoms, such as anxiety disorders, learning disabilities, mood disorders, or medical conditions affecting attention and behavior.</p>
+                        </section>
+
+                        <section id="treatment">
+                            <h2>Treatment</h2>
+                            <p>Effective ADHD treatment typically involves a multimodal approach:</p>
+                            
+                            <h3>Medication</h3>
+                            <p>Stimulant medications (like methylphenidate and amphetamines) are often the first-line treatment, showing effectiveness in 70-80% of individuals. Non-stimulant options are also available for those who don't respond well to stimulants.</p>
+                            
+                            <h3>Behavioral Therapy</h3>
+                            <p>Behavioral interventions help develop coping strategies, organizational skills, and improve behavior management. These may include cognitive-behavioral therapy, parent training, and school-based interventions.</p>
+                            
+                            <h3>Educational Support</h3>
+                            <p>Academic accommodations and support services help students with ADHD succeed in educational settings. These may include extended time for tests, preferential seating, and modified assignments.</p>
+                            
+                            <h3>Lifestyle Management</h3>
+                            <p>Regular exercise, adequate sleep, healthy nutrition, and stress management techniques can significantly improve ADHD symptoms and overall functioning.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.script.js"></script>
+    <div id="toast-notification"></div>
+</body>
+</html>

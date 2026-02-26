@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Clario</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main class="auth-container">
+        <div class="login-card">
+            <div class="user-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <h1 data-translate="Sign In">Sign In</h1>
+            <p class="subtitle" data-translate="Please enter login to your account.">Please enter login to your account.</p>
+            <form class="login-form">
+                <div class="form-group">
+                    <svg class="input-icon" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
+                    </svg>
+                    <input type="text" placeholder="Username" name="username" data-translate-placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <svg class="input-icon" viewBox="0 0 24 24">
+                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" fill="currentColor"/>
+                    </svg>
+                    <input type="password" placeholder="Password" name="password" data-translate-placeholder="Password" required>
+                </div>
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember">
+                        <span data-translate="Remember me">Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link" data-translate="Forgot Password?">Forgot Password?</a>
+                </div>
+                <button type="submit" class="login-btn" data-translate="SIGN IN">SIGN IN</button>
+                <div class="signup-link">
+                    <span data-translate="Don't have an account?">Don't have an account?</span> <a href="signup.html" data-translate="Sign up">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="universal-language-system.js"></script>
+</body>
+</html>

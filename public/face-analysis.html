@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Analysis | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="face-analysis.css">
+    <script src="header-scroll.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <div class="brand-logo main-logo">
+                <img src="images/clario.png" alt="Clario Brain Logo" class="logo-img">
+            </div> 
+            <nav class="top-nav">
+                <ul>
+                    <li class="nav-logo">
+                        <img src="images/clario.png" alt="Clario Brain Logo" class="logo-img-small">
+                    </li>
+                    
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+
+                    <li class="dropdown">
+                        <a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                            <li class="active"><a href="face-analysis.html"><i class="fas fa-user-astronaut"></i> Face Analysis</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- <div class="info-banner">
+            <div class="banner-left-content">
+                <h2>AI Face Analysis</h2>
+                <p class="banner-secondary-text">Real-time emotion detection and facial expression analysis.</p>
+            </div>
+            <div class="banner-right-stats">
+                <div class="stat-item">
+                    <p class="stat-description">Real-time<br>Emotion<br>Detection</p>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <p class="stat-description">Advanced<br>AI<br>Analysis</p>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <p class="stat-description">Privacy<br>First<br>Approach</p>
+                </div>
+            </div>
+        </div> -->
+
+        <main class="main-content-no-sidebar">
+            <section>
+                <div class="combined-analysis-card">
+                    <div class="card">
+                        <h2>Live Face Analysis</h2>
+                        <p>Your AI-powered emotion analysis will appear in real-time. Position your face clearly in the camera frame for accurate results.</p>
+                        
+                        <div class="analysis-content">
+                            <div class="results-section">
+                                <h3>Real-time Results</h3>
+                                <div id="results">
+                                    <p><strong>Status:</strong> <span id="status" style="font-weight: 600;">Idle</span></p>
+                                    <p><strong>Detected Expression:</strong> <span id="expression-result">...</span></p>
+                                </div>
+                                <button id="analyze-button" style="margin-top: 15px;">Start Real-time Analysis</button>
+                            </div>
+                            
+                            <div class="webcam-section">
+                                <video id="webcam" autoplay playsinline muted></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <div class="card">
+        <h2>About Face Analysis</h2>
+        <p>Face analysis is an advanced AI technology that uses computer vision and machine learning algorithms to detect, analyze, and interpret facial expressions and emotions in real-time. Our sophisticated system can identify various emotional states including happiness, sadness, anger, surprise, fear, and neutral expressions by analyzing key facial features and micro-expressions.</p>
+        
+        <h3>How It Works</h3>
+        <p>Our face analysis technology processes your facial expressions through several steps:</p>
+        <ul>
+            <li><strong>Face Detection:</strong> The system first locates and identifies your face within the camera frame</li>
+            <li><strong>Landmark Recognition:</strong> Key facial points are mapped including eyes, eyebrows, nose, mouth, and jaw</li>
+            <li><strong>Expression Analysis:</strong> AI algorithms analyze the position and movement of facial features</li>
+            <li><strong>Emotion Classification:</strong> The system classifies your current emotional state based on facial patterns</li>
+            <li><strong>Real-time Feedback:</strong> Results are displayed instantly with confidence scores</li>
+        </ul>
+        
+        <h3>Privacy & Security</h3>
+        <p>Your privacy is our top priority. All face analysis processing happens locally in your browser - no images or video data are sent to external servers. Your facial data is never stored, recorded, or shared. The analysis happens in real-time and is immediately discarded after processing.</p>
+        
+        <h3>Benefits</h3>
+        <p>Face analysis can help you:</p>
+        <ul>
+            <li>Become more aware of your emotional states throughout the day</li>
+            <li>Track patterns in your mood and expressions</li>
+            <li>Improve emotional intelligence and self-awareness</li>
+            <li>Practice mindfulness and emotional regulation techniques</li>
+            <li>Better understand your non-verbal communication</li>
+        </ul>
+    </div>
+    <!-- Link to the JavaScript file -->
+    <script src="face-analysis.js"></script>
+</body>
+</html>

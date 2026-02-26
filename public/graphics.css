@@ -1,0 +1,458 @@
+/* Animated Background Graphics */
+.background-graphics {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Floating Geometric Shapes */
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(76, 175, 80, 0.15));
+    animation: floatAndRotate 20s infinite linear;
+    backdrop-filter: blur(2px);
+}
+
+.shape-1 {
+    width: 150px;
+    height: 150px;
+    top: 10%;
+    left: 5%;
+    animation-duration: 25s;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.08), rgba(139, 195, 74, 0.12));
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 8%;
+    animation-duration: 30s;
+    animation-direction: reverse;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(129, 199, 132, 0.15));
+}
+
+.shape-3 {
+    width: 120px;
+    height: 120px;
+    bottom: 15%;
+    left: 15%;
+    animation-duration: 22s;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.12), rgba(102, 187, 106, 0.08));
+}
+
+.shape-4 {
+    width: 180px;
+    height: 180px;
+    top: 30%;
+    right: 25%;
+    animation-duration: 28s;
+    animation-direction: reverse;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    background: linear-gradient(135deg, rgba(27, 94, 32, 0.1), rgba(67, 160, 71, 0.12));
+}
+
+.shape-5 {
+    width: 100px;
+    height: 100px;
+    top: 75%;
+    right: 40%;
+    animation-duration: 18s;
+    background: linear-gradient(135deg, rgba(104, 159, 56, 0.1), rgba(156, 204, 101, 0.08));
+}
+
+@keyframes floatAndRotate {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+    25% {
+        transform: translate(30px, -20px) rotate(90deg) scale(1.1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-20px, -40px) rotate(180deg) scale(0.9);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translate(-40px, 20px) rotate(270deg) scale(1.05);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg) scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Floating Particles */
+.floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.8), rgba(46, 125, 50, 0.4));
+    border-radius: 50%;
+    animation: particleFloat 15s infinite linear;
+}
+
+.particle:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 20s;
+}
+
+.particle:nth-child(2) {
+    top: 40%;
+    left: 80%;
+    animation-delay: 3s;
+    animation-duration: 18s;
+}
+
+.particle:nth-child(3) {
+    top: 70%;
+    left: 30%;
+    animation-delay: 6s;
+    animation-duration: 25s;
+}
+
+.particle:nth-child(4) {
+    top: 30%;
+    left: 60%;
+    animation-delay: 9s;
+    animation-duration: 22s;
+}
+
+.particle:nth-child(5) {
+    top: 80%;
+    left: 70%;
+    animation-delay: 12s;
+    animation-duration: 16s;
+}
+
+.particle:nth-child(6) {
+    top: 60%;
+    left: 20%;
+    animation-delay: 15s;
+    animation-duration: 24s;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* Section Graphics for Circular Features */
+.section-graphics {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.graphic-circle {
+    position: absolute;
+    border: 2px solid rgba(76, 175, 80, 0.2);
+    border-radius: 50%;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 400px;
+    height: 400px;
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 2s;
+    border-color: rgba(139, 195, 74, 0.15);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.6;
+    }
+}
+
+.graphic-wave {
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(76, 175, 80, 0.1) 25%, 
+        rgba(139, 195, 74, 0.15) 50%, 
+        rgba(76, 175, 80, 0.1) 75%, 
+        transparent 100%);
+    border-radius: 100px;
+    animation: wave 8s ease-in-out infinite;
+}
+
+.wave-1 {
+    top: 20%;
+    right: 5%;
+    animation-delay: 0s;
+}
+
+.wave-2 {
+    bottom: 20%;
+    left: 5%;
+    animation-delay: 4s;
+    transform: rotate(45deg);
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: rotate(5deg) scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+/* Quick Links Graphics */
+.quick-links-graphics {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.graphic-hexagon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(129, 199, 132, 0.08));
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+    animation: rotate 12s linear infinite;
+}
+
+.hex-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.hex-2 {
+    bottom: 15%;
+    right: 8%;
+    animation-delay: 6s;
+    animation-direction: reverse;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.graphic-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(76, 175, 80, 0.4) 50%, 
+        transparent 100%);
+    animation: lineMove 6s ease-in-out infinite;
+}
+
+.line-1 {
+    width: 200px;
+    top: 30%;
+    right: 15%;
+    animation-delay: 0s;
+}
+
+.line-2 {
+    width: 150px;
+    bottom: 40%;
+    left: 10%;
+    animation-delay: 3s;
+    transform: rotate(45deg);
+}
+
+@keyframes lineMove {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(20px);
+    }
+}
+
+/* Enhanced Card Graphics */
+.center-decoration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    animation: svgRotate 20s linear infinite;
+}
+
+@keyframes svgRotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.05) 0%, transparent 70%);
+    animation: cardGlow 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.card > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes cardGlow {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+/* Interactive Graphics for Circular Items */
+.item:hover ~ .section-graphics .graphic-circle,
+.item:focus ~ .section-graphics .graphic-circle,
+.item.active ~ .section-graphics .graphic-circle {
+    animation-duration: 2s;
+    border-color: rgba(76, 175, 80, 0.4);
+    transform: scale(1.1);
+}
+
+.item:hover ~ .section-graphics .graphic-wave,
+.item:focus ~ .section-graphics .graphic-wave,
+.item.active ~ .section-graphics .graphic-wave {
+    animation-duration: 4s;
+    opacity: 0.8;
+}
+
+/* Add sparkle effects */
+.item.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.8), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: sparkle 1s ease-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floating-shape {
+        transform: scale(0.7);
+    }
+    
+    .graphic-circle {
+        transform: scale(0.6);
+    }
+    
+    .graphic-wave {
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width: 480px) {
+    .background-graphics {
+        opacity: 0.6;
+    }
+    
+    .floating-shape {
+        transform: scale(0.5);
+    }
+}

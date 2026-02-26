@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condition A-Z | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="condition-az.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="header-scroll.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="user-info-right">
+                    <span data-translate="Logged in as:">Logged in as:</span> <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> <span data-translate="Logout">Logout</span></a>
+                </div>
+            </div>
+            <div class="brand-logo main-logo">
+                <img src="images/clario.png" alt="Clario Brain Logo " class="logo-img">
+            </div> 
+            <nav class="top-nav">
+                <ul>
+                    <li class="nav-logo">
+                        <img src="images/clario.png" alt="Clario Brain Logo" class="logo-img-small">
+                    </li>
+                    <li><a href="dashboard.html" title="Dashboard" data-translate-title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    
+                    <li class="dropdown active">
+                        <a href="condition-az.html" data-translate="Condition A-Z">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html" data-translate="Anxiety">Anxiety</a></li>
+                            <li><a href="depression.html" data-translate="Depression">Depression</a></li>
+                            <li><a href="sleep-disorder.html" data-translate="Sleep Disorder">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html" data-translate="View More">View More</a></li>
+                            <li><a href="face-analysis.html"><i class="fas fa-user-astronaut"></i> <span data-translate="Face Analysis">Face Analysis</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html" data-translate="Journal">Journal</a></li>
+                    <li><a href="practice.html" data-translate="Wellness Practice">Wellness Practice</a></li>
+                    <li><a href="question.html" data-translate="Daily Question">Daily Question</a></li>
+                    <li><a href="quiz.html" data-translate="Quiz">Quiz</a></li>
+                    <li><a href="chat.html" data-translate="Chat with AI">Chat with AI</a></li>
+                    <li class="search-container">
+                        <div class="search-toggle" id="searchToggle">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                        <div class="search-box" id="searchBox">
+                            <input type="text" id="searchInput" placeholder="Search wellness topics..." data-translate-placeholder="Search wellness topics..." autocomplete="off">
+                            <div class="search-results" id="searchResults"></div>
+                            <button class="search-close" id="searchClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="language-container">
+                        <div class="language-toggle" id="languageToggle">
+                            <i class="fas fa-globe language-icon"></i>
+                            <span class="current-lang" id="currentLang" data-translate="EN">EN</span>
+                        </div>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" data-lang="en">
+                                <div class="flag-icon flag-en">🇺🇸</div>
+                                <span data-translate="English">English</span>
+                                <small data-translate="Default">Default</small>
+                            </div>
+                            <div class="language-option" data-lang="hi">
+                                <div class="flag-icon flag-hi">🇮🇳</div>
+                                <span>हिंदी</span>
+                                <small data-translate="Hindi">Hindi</small>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content-no-sidebar">
+            <!-- Page Header with Search - Reference Design -->
+            <div class="conditions-header-section">
+                <h1 class="conditions-main-title" data-translate="Conditions A-Z">Conditions A-Z</h1>
+                <div class="search-container-ref">
+                    <div class="search-autocomplete-wrapper">
+                        <input type="text" class="search-input-ref" placeholder="How can we help you?" data-translate-placeholder="How can we help you?" autocomplete="off">
+                        <div class="search-suggestions-dropdown" id="searchSuggestions"></div>
+                    </div>
+                    <button class="search-button-ref" data-translate="GO">GO</button>
+                </div>
+                <!-- Dropdown Filter -->
+                <div class="filter-dropdown-container">
+                    <label for="condition-filter" class="filter-label" data-translate="Filter by category:">Filter by category:</label>
+                    <select id="condition-filter" class="condition-filter-dropdown">
+                        <option value="all" data-translate="All Conditions">All Conditions</option>
+                        <option value="anxiety-related" data-translate="Anxiety Related">Anxiety Related</option>
+                        <option value="mood-disorders" data-translate="Mood Disorders">Mood Disorders</option>
+                        <option value="personality-disorders" data-translate="Personality Disorders">Personality Disorders</option>
+                        <option value="eating-disorders" data-translate="Eating Disorders">Eating Disorders</option>
+                        <option value="sleep-disorders" data-translate="Sleep Disorders">Sleep Disorders</option>
+                        <option value="trauma-related" data-translate="Trauma Related">Trauma Related</option>
+                        <option value="behavioral-disorders" data-translate="Behavioral Disorders">Behavioral Disorders</option>
+                        <option value="developmental" data-translate="Developmental">Developmental</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Category Icons Grid - Reference Design -->
+            <div class="category-icons-section">
+                <div class="category-item-ref">
+                    <div class="category-icon-ref anxiety-ref">
+                        <svg viewBox="0 0 100 100" class="category-svg-ref">
+                            <circle cx="30" cy="40" r="15" fill="#87CEEB"/>
+                            <circle cx="60" cy="35" r="10" fill="#F4A460"/>
+                            <path d="M20,60 Q30,50 40,60 Q50,70 60,60" stroke="#87CEEB" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <p class="category-name-ref" data-translate="Anxiety">Anxiety</p>
+                </div>
+                
+                <div class="category-item-ref">
+                    <div class="category-icon-ref depression-ref">
+                        <svg viewBox="0 0 100 100" class="category-svg-ref">
+                            <circle cx="50" cy="50" r="20" fill="#4CAF50"/>
+                            <path d="M30,30 L70,70 M30,70 L70,30" stroke="#FFA500" stroke-width="3"/>
+                        </svg>
+                    </div>
+                    <p class="category-name-ref" data-translate="Depression">Depression</p>
+                </div>
+                
+                <div class="category-item-ref">
+                    <div class="category-icon-ref meditation-ref">
+                        <svg viewBox="0 0 100 100" class="category-svg-ref">
+                            <circle cx="50" cy="50" r="25" fill="none" stroke="#4CAF50" stroke-width="4"/>
+                            <circle cx="50" cy="50" r="15" fill="none" stroke="#4CAF50" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="8" fill="#4CAF50"/>
+                        </svg>
+                    </div>
+                    <p class="category-name-ref" data-translate="Meditation">Meditation</p>
+                </div>
+                
+                <div class="category-item-ref">
+                    <div class="category-icon-ref relationships-ref">
+                        <svg viewBox="0 0 100 100" class="category-svg-ref">
+                            <path d="M30,50 L40,40 L60,40 L70,50 L60,60 L40,60 Z" fill="#4CAF50"/>
+                            <path d="M50,30 L60,40 L50,50 L40,40 Z" fill="#87CEEB"/>
+                        </svg>
+                    </div>
+                    <p class="category-name-ref" data-translate="Relationships">Relationships</p>
+                </div>
+                
+                <div class="category-item-ref">
+                    <div class="category-icon-ref improvement-ref">
+                        <svg viewBox="0 0 100 100" class="category-svg-ref">
+                            <rect x="20" y="70" width="15" height="20" fill="#87CEEB"/>
+                            <rect x="35" y="60" width="15" height="30" fill="#4CAF50"/>
+                            <rect x="50" y="50" width="15" height="40" fill="#87CEEB"/>
+                            <polygon points="70,30 75,20 80,30" fill="#FFA500"/>
+                            <line x1="75" y1="30" x2="75" y2="50" stroke="#FFA500" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p class="category-name-ref" data-translate="Self-Improvement">Self-Improvement</p>
+                </div>
+                
+                <div class="category-item-ref">
+                    <div class="category-icon-ref therapy-ref">
+                        <svg viewBox="0 0 100 100" class="category-svg-ref">
+                            <ellipse cx="50" cy="70" rx="20" ry="8" fill="#8B4513"/>
+                            <rect x="48" y="40" width="4" height="30" fill="#8B4513"/>
+                            <ellipse cx="50" cy="30" rx="15" ry="20" fill="#4CAF50"/>
+                            <path d="M40,25 Q45,20 50,25 Q55,20 60,25" stroke="#4CAF50" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <p class="category-name-ref" data-translate="Therapy">Therapy</p>
+                </div>
+            </div>
+
+            <!-- Alphabetical Navigation - Reference Design -->
+            <div class="alphabet-nav-section">
+                <p class="alphabet-nav-title" data-translate="Find a topic by its first letter:">Find a topic by its first letter:</p>
+                <div class="alphabet-buttons-ref" id="alphabetNavigation">
+                    <!-- Alphabet buttons will be dynamically generated based on language -->
+                </div>
+            </div>
+
+           <!-- Original Content Preserved -->
+           <header>
+                 <h1 class="page-title" data-translate="Health Conditions A-Z">Health Conditions A-Z</h1>
+                 <p class="page-subtitle" data-translate="Comprehensive guide to mental health conditions organized alphabetically">Comprehensive guide to mental health conditions organized alphabetically</p>
+           </header>
+           
+           <!-- Letter A -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">A</h2>
+                
+                <!-- Reference-style condition list -->
+                <div class="reference-conditions-section">
+                    <div class="letter-badge-ref">
+                        <span class="letter-badge-text">A</span>
+                    </div>
+                    <div class="conditions-list-ref">
+                        <div class="condition-row-ref">
+                            <a href="#" class="condition-link-ref" data-translate="Addiction">Addiction</a>
+                            <a href="adhd.html" class="condition-link-ref" data-translate="ADHD, Childhood">ADHD, Childhood</a>
+                            <a href="#" class="condition-link-ref" data-translate="Adjustment Disorder">Adjustment Disorder</a>
+                            <a href="#" class="condition-link-ref" data-translate="Alcohol Addiction">Alcohol Addiction</a>
+                        </div>
+                        <div class="condition-row-ref">
+                            <a href="#" class="condition-link-ref" data-translate="Alzheimer's Disease">Alzheimer's Disease</a>
+                            <a href="#" class="condition-link-ref" data-translate="Anorexia">Anorexia</a>
+                            <a href="#" class="condition-link-ref" data-translate="Antisocial Personality Disorder">Antisocial Personality Disorder</a>
+                            <a href="anxiety.html" class="condition-link-ref" data-translate="Anxiety">Anxiety</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Original cards grid -->
+                <div class="conditions-grid">
+                    <a href="anxiety.html" class="quick-link-card-verywell" data-category="anxiety-related">
+                        <i class="fas fa-cloud-sun"></i>
+                        <h3 data-translate="Anxiety">Anxiety</h3>
+                        <p data-translate="Learn about types, symptoms, and treatments.">Learn about types, symptoms, and treatments.</p>
+                    </a>
+                    <a href="adhd.html" class="quick-link-card-verywell" data-category="developmental">
+                        <i class="fas fa-head-side-virus"></i>
+                        <h3 data-translate="ADHD">ADHD</h3>
+                        <p data-translate="Attention Deficit Hyperactivity Disorder symptoms and management.">Attention Deficit Hyperactivity Disorder symptoms and management.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="behavioral-disorders">
+                        <i class="fas fa-wine-bottle"></i>
+                        <h3 data-translate="Addiction">Addiction</h3>
+                        <p data-translate="Understanding substance and behavioral addictions.">Understanding substance and behavioral addictions.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="anxiety-related">
+                        <i class="fas fa-user-times"></i>
+                        <h3 data-translate="Agoraphobia">Agoraphobia</h3>
+                        <p data-translate="Fear of situations where escape might be difficult.">Fear of situations where escape might be difficult.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter B -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">B</h2>
+                <div class="conditions-grid">
+                    <a href="bipolar.html" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-person-dots-from-line"></i>
+                        <h3 data-translate="Bipolar Disorder">Bipolar Disorder</h3>
+                        <p data-translate="Find resources on living with bipolar disorder.">Find resources on living with bipolar disorder.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="personality-disorders">
+                        <i class="fas fa-user-injured"></i>
+                        <h3 data-translate="Borderline Personality">Borderline Personality</h3>
+                        <p data-translate="Understanding intense relationships and emotions.">Understanding intense relationships and emotions.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="eating-disorders">
+                        <i class="fas fa-weight-scale"></i>
+                        <h3 data-translate="Body Dysmorphia">Body Dysmorphia</h3>
+                        <p data-translate="Distorted body image and appearance concerns.">Distorted body image and appearance concerns.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-fire-flame-curved"></i>
+                        <h3 data-translate="Burnout">Burnout</h3>
+                        <p data-translate="Work-related stress and emotional exhaustion.">Work-related stress and emotional exhaustion.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter C -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">C</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="trauma-related">
+                        <i class="fas fa-brain"></i>
+                        <h3 data-translate="Chronic Pain">Chronic Pain</h3>
+                        <p data-translate="Coping strategies and treatment options.">Coping strategies and treatment options.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="behavioral-disorders">
+                        <i class="fas fa-child"></i>
+                        <h3 data-translate="Conduct Disorder">Conduct Disorder</h3>
+                        <p data-translate="Behavioral problems in children and teens.">Behavioral problems in children and teens.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter D -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">D</h2>
+                
+                <!-- Reference-style condition list -->
+                <div class="reference-conditions-section">
+                    <div class="letter-badge-ref">
+                        <span class="letter-badge-text">D</span>
+                    </div>
+                    <div class="conditions-list-ref">
+                        <div class="condition-row-ref">
+                            <a href="#" class="condition-link-ref" data-translate="Delayed Sleep Phase Syndrome">Delayed Sleep Phase Syndrome</a>
+                            <a href="#" class="condition-link-ref" data-translate="Dementia">Dementia</a>
+                            <a href="depression.html" class="condition-link-ref" data-translate="Depression">Depression</a>
+                            <a href="#" class="condition-link-ref" data-translate="Depression, Childhood">Depression, Childhood</a>
+                        </div>
+                        <div class="condition-row-ref">
+                            <a href="#" class="condition-link-ref" data-translate="Disruptive Mood Dysregulation Disorder">Disruptive Mood Dysregulation Disorder</a>
+                            <a href="#" class="condition-link-ref" data-translate="Drug Addiction">Drug Addiction</a>
+                            <a href="#" class="condition-link-ref" data-translate="DSM-5">DSM-5</a>
+                            <a href="#" class="condition-link-ref" data-translate="Dissociative Disorders">Dissociative Disorders</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Original cards grid -->
+                <div class="conditions-grid">
+                    <a href="depression.html" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-cloud-moon"></i>
+                        <h3 data-translate="Depression">Depression</h3>
+                        <p data-translate="Understand the signs and how to seek help.">Understand the signs and how to seek help.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="developmental">
+                        <i class="fas fa-memory"></i>
+                        <h3 data-translate="Dementia">Dementia</h3>
+                        <p data-translate="Cognitive decline and memory disorders.">Cognitive decline and memory disorders.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="trauma-related">
+                        <i class="fas fa-user-slash"></i>
+                        <h3 data-translate="Dissociative Disorders">Dissociative Disorders</h3>
+                        <p data-translate="Disconnection from thoughts, identity, or memory.">Disconnection from thoughts, identity, or memory.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter E -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">E</h2>
+                
+                <!-- Reference-style condition list -->
+                <div class="reference-conditions-section">
+                    <div class="letter-badge-ref">
+                        <span class="letter-badge-text">E</span>
+                    </div>
+                    <div class="conditions-list-ref">
+                        <div class="condition-row-ref">
+                            <a href="eating-disorders.html" class="condition-link-ref" data-translate="Eating Disorders">Eating Disorders</a>
+                            <a href="#" class="condition-link-ref" data-translate="Emotional Dysregulation">Emotional Dysregulation</a>
+                            <a href="#" class="condition-link-ref" data-translate="Anxiety Disorders">Anxiety Disorders</a>
+                            <a href="#" class="condition-link-ref" data-translate="Explosive Disorder">Explosive Disorder</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Original cards grid -->
+                <div class="conditions-grid">
+                    <a href="eating-disorders.html" class="quick-link-card-verywell" data-category="eating-disorders">
+                        <i class="fas fa-utensils"></i>
+                        <h3 data-translate="Eating Disorders">Eating Disorders</h3>
+                        <p data-translate="Anorexia, bulimia, and binge eating disorders.">Anorexia, bulimia, and binge eating disorders.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter F -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">F</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="anxiety-related">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3 data-translate="Phobias">Phobias</h3>
+                        <p data-translate="Specific fears and avoidance behaviors.">Specific fears and avoidance behaviors.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter G -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">G</h2>
+                <div class="conditions-grid">
+                    <a href="gaslighting.html" class="quick-link-card-verywell" data-category="trauma-related">
+                        <i class="fas fa-mask"></i>
+                        <h3 data-translate="Gaslighting">Gaslighting</h3>
+                        <p data-translate="Psychological manipulation and abuse patterns.">Psychological manipulation and abuse patterns.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-sad-tear"></i>
+                        <h3 data-translate="Grief & Loss">Grief & Loss</h3>
+                        <p data-translate="Coping with bereavement and major losses.">Coping with bereavement and major losses.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter H -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">H</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="behavioral-disorders">
+                        <i class="fas fa-eye-slash"></i>
+                        <h3 data-translate="Hoarding">Hoarding</h3>
+                        <p data-translate="Difficulty discarding possessions.">Difficulty discarding possessions.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter I -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">I</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="sleep-disorders">
+                        <i class="fas fa-bed"></i>
+                        <h3 data-translate="Insomnia">Insomnia</h3>
+                        <p data-translate="Sleep difficulties and disorders.">Sleep difficulties and disorders.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="behavioral-disorders">
+                        <i class="fas fa-fist-raised"></i>
+                        <h3 data-translate="Intermittent Explosive">Intermittent Explosive</h3>
+                        <p data-translate="Sudden episodes of aggressive behavior.">Sudden episodes of aggressive behavior.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter M -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">M</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-head-side-cough"></i>
+                        <h3 data-translate="Major Depression">Major Depression</h3>
+                        <p data-translate="Severe form of depressive disorder.">Severe form of depressive disorder.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3 data-translate="Mood Disorders">Mood Disorders</h3>
+                        <p data-translate="Conditions affecting emotional state.">Conditions affecting emotional state.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter N -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">N</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="personality-disorders">
+                        <i class="fas fa-crown"></i>
+                        <h3 data-translate="Narcissistic Personality">Narcissistic Personality</h3>
+                        <p data-translate="Grandiose sense of self-importance.">Grandiose sense of self-importance.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter O -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">O</h2>
+                <div class="conditions-grid">
+                    <a href="ocd.html" class="quick-link-card-verywell" data-category="anxiety-related">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3 data-translate="Obsessive-Compulsive">Obsessive-Compulsive</h3>
+                        <p data-translate="Explore intrusive thoughts and compulsions.">Explore intrusive thoughts and compulsions.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="behavioral-disorders">
+                        <i class="fas fa-user-alt-slash"></i>
+                        <h3 data-translate="Oppositional Defiant">Oppositional Defiant</h3>
+                        <p data-translate="Pattern of defiant behavior in children.">Pattern of defiant behavior in children.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter P -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">P</h2>
+                <div class="conditions-grid">
+                    <a href="panic.html" class="quick-link-card-verywell" data-category="anxiety-related">
+                        <i class="fas fa-heart-pulse"></i>
+                        <h3 data-translate="Panic Disorder">Panic Disorder</h3>
+                        <p data-translate="Learn about sudden and repeated panic attacks.">Learn about sudden and repeated panic attacks.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="personality-disorders">
+                        <i class="fas fa-theater-masks"></i>
+                        <h3 data-translate="Personality Disorders">Personality Disorders</h3>
+                        <p data-translate="Patterns of thinking and behavior.">Patterns of thinking and behavior.</p>
+                    </a>
+                    <a href="ptsd.html" class="quick-link-card-verywell" data-category="trauma-related">
+                        <i class="fas fa-shield-virus"></i>
+                        <h3 data-translate="PTSD">PTSD</h3>
+                        <p data-translate="Post-traumatic stress disorder recovery.">Post-traumatic stress disorder recovery.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter S -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">S</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="developmental">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <h3 data-translate="Schizophrenia">Schizophrenia</h3>
+                        <p data-translate="Understanding symptoms and treatments.">Understanding symptoms and treatments.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-heart-broken"></i>
+                        <h3 data-translate="Seasonal Depression">Seasonal Depression</h3>
+                        <p data-translate="Seasonal Affective Disorder (SAD).">Seasonal Affective Disorder (SAD).</p>
+                    </a>
+                    <a href="sleep-disorder.html" class="quick-link-card-verywell" data-category="sleep-disorders">
+                        <i class="fas fa-bed"></i>
+                        <h3 data-translate="Sleep Disorders">Sleep Disorders</h3>
+                        <p data-translate="Information on insomnia, apnea, and more.">Information on insomnia, apnea, and more.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="anxiety-related">
+                        <i class="fas fa-user-friends"></i>
+                        <h3 data-translate="Social Anxiety">Social Anxiety</h3>
+                        <p data-translate="Fear of social situations and judgment.">Fear of social situations and judgment.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="mood-disorders">
+                        <i class="fas fa-exclamation"></i>
+                        <h3 data-translate="Stress Disorders">Stress Disorders</h3>
+                        <p data-translate="Acute and chronic stress responses.">Acute and chronic stress responses.</p>
+                    </a>
+                </div>
+           </section>
+
+           <!-- Letter T -->
+           <section class="alphabet-section">
+                <h2 class="alphabet-header">T</h2>
+                <div class="conditions-grid">
+                    <a href="#" class="quick-link-card-verywell" data-category="trauma-related">
+                        <i class="fas fa-car-crash"></i>
+                        <h3 data-translate="Trauma Disorders">Trauma Disorders</h3>
+                        <p data-translate="Effects of traumatic experiences.">Effects of traumatic experiences.</p>
+                    </a>
+                    <a href="#" class="quick-link-card-verywell" data-category="behavioral-disorders">
+                        <i class="fas fa-repeat"></i>
+                        <h3 data-translate="Trichotillomania">Trichotillomania</h3>
+                        <p data-translate="Compulsive hair pulling disorder.">Compulsive hair pulling disorder.</p>
+                    </a>
+                </div>
+           </section>
+
+            <!-- About Section - Footer Style -->
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-brand">
+                        <div class="about-logo">
+                            <img src="images/clario.png" alt="Clario" class="about-logo-img">
+                            <h2 data-translate="Clario">Clario</h2>
+                        </div>
+                        <div class="certification-badge">
+                            <div class="badge-circle">
+                                <span class="badge-letter">C</span>
+                            </div>
+                            <div class="badge-text">
+                                <p data-translate="Certified">Certified</p>
+                                <small data-translate="Platform certification">This platform meets high standards of mental health and wellness support.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-columns">
+                        <div class="about-column">
+                            <h3 data-translate="Services">Services</h3>
+                            <ul>
+                                <li><a href="anxiety.html"><i class="fas fa-leaf"></i> <span data-translate="Anxiety Support">Anxiety Support</span></a></li>
+                                <li><a href="depression.html"><i class="fas fa-leaf"></i> <span data-translate="Depression Care">Depression Care</span></a></li>
+                                <li><a href="sleeptracker.html"><i class="fas fa-leaf"></i> <span data-translate="Sleep Wellness">Sleep Wellness</span></a></li>
+                                <li><a href="practice.html"><i class="fas fa-leaf"></i> <span data-translate="Mindfulness Practice">Mindfulness Practice</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Resources">Resources</h3>
+                            <ul>
+                                <li><a href="condition-az.html" data-translate="Mental Health A-Z">Mental Health A-Z</a></li>
+                                <li><a href="panic.html" data-translate="Crisis Support">Crisis Support</a></li>
+                                <li><a href="ocd.html" data-translate="OCD Resources">OCD Resources</a></li>
+                                <li><a href="gaslighting.html" data-translate="Relationship Support">Relationship Support</a></li>
+                                <li><a href="face-analysis.html" data-translate="Emotion Analysis">Emotion Analysis</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Tools">Tools</h3>
+                            <ul>
+                                <li><a href="journal.html" data-translate="Daily Journal">Daily Journal</a></li>
+                                <li><a href="question.html" data-translate="Check-in Questions">Check-in Questions</a></li>
+                                <li><a href="quiz.html" data-translate="Wellness Assessments">Wellness Assessments</a></li>
+                                <li><a href="chat.html" data-translate="AI Chat Support">AI Chat Support</a></li>
+                                <li><a href="attachment.html" data-translate="Attachment Insights">Attachment Insights</a></li>
+                                <li><a href="emotion.html" data-translate="Emotion Tracking">Emotion Tracking</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Quick Links">Quick Links</h3>
+                            <ul>
+                                <li><a href="dashboard.html" data-translate="About Us">About Us</a></li>
+                                <li><a href="#case-study" data-translate="Success Stories">Success Stories</a></li>
+                                <li><a href="#knowledge" data-translate="Wellness Library">Wellness Library</a></li>
+                                <li><a href="#careers" data-translate="Join Our Team">Join Our Team</a></li>
+                                <li><a href="#partner" data-translate="Become a Partner">Become a Partner</a></li>
+                                <li><a href="#connect" data-translate="Connect With Us">Connect With Us</a></li>
+                                <li><a href="#news" data-translate="Latest Updates">Latest Updates</a></li>
+                                <li><a href="#legal" data-translate="Privacy & Terms">Privacy & Terms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Large Background Text -->
+                <div class="about-background-text" data-translate="Clario">Clario</div>
+
+                <!-- Footer Bottom -->
+                <div class="about-footer">
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright" data-translate="Copyright">© 2025 Clario Mental Wellness Solutions Private Limited</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="dashboard.script.js"></script>
+    <style>
+        /* Dropdown Filter Styling */
+        .filter-dropdown-container {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .filter-label {
+            display: inline-block;
+            margin-right: 0.5rem;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.9rem;
+        }
+        
+        .condition-filter-dropdown {
+            padding: 0.5rem 1rem;
+            border: 2px solid #4CAF50;
+            border-radius: 25px;
+            background-color: white;
+            color: #333;
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+            min-width: 180px;
+        }
+        
+        .condition-filter-dropdown:hover {
+            background-color: #f0f8f0;
+            border-color: #45a049;
+        }
+        
+        .condition-filter-dropdown:focus {
+            border-color: #45a049;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+        
+        /* Search Autocomplete Styling */
+        .search-autocomplete-wrapper {
+            position: relative;
+            display: inline-block;
+            flex: 1;
+        }
+        
+        .search-suggestions-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-suggestions-dropdown.show {
+            display: block;
+        }
+        
+        .suggestion-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+        
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .suggestion-item:hover,
+        .suggestion-item.highlighted {
+            background-color: #f0f8f0;
+        }
+        
+        .suggestion-icon {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+            color: #4CAF50;
+            font-size: 0.9rem;
+        }
+        
+        .suggestion-text {
+            flex: 1;
+        }
+        
+        .suggestion-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 2px;
+        }
+        
+        .suggestion-description {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .suggestion-category {
+            font-size: 0.75rem;
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+        
+        /* Update search container to flex */
+        .search-container-ref {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .filter-dropdown-container {
+                margin-top: 1.5rem;
+            }
+            
+            .filter-label {
+                display: block;
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
+            
+            .condition-filter-dropdown {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .search-container-ref {
+                flex-direction: column;
+            }
+            
+            .search-autocomplete-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+    <script>
+        // Dynamic Alphabet Navigation
+        function generateAlphabetNavigation() {
+            const currentLang = localStorage.getItem('clario-language') || 'en';
+            const alphabetContainer = document.getElementById('alphabetNavigation');
+            
+            if (!alphabetContainer) return;
+            
+            // Clear existing buttons
+            alphabetContainer.innerHTML = '';
+            
+            // Available letters in the content (English)
+            const availableEnglishLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'S', 'T'];
+            
+            // Corresponding Hindi letters (Devanagari)
+            const hindiLetters = ['क', 'ख', 'ग', 'घ', 'ङ', 'च', 'छ', 'ज', 'झ', 'ञ', 'ट', 'ठ', 'ड', 'ढ', 'ण', 'त', 'थ', 'द'];
+            
+            // Create "All" button
+            const allButton = document.createElement('button');
+            allButton.className = 'alphabet-btn-ref active';
+            allButton.setAttribute('data-letter', 'ALL');
+            allButton.textContent = currentLang === 'hi' ? 'सभी' : 'All';
+            alphabetContainer.appendChild(allButton);
+            
+            // Create letter buttons
+            availableEnglishLetters.forEach((englishLetter, index) => {
+                const button = document.createElement('button');
+                button.className = 'alphabet-btn-ref';
+                button.setAttribute('data-letter', englishLetter); // Always use English letter for filtering
+                
+                // Display Hindi or English letter
+                if (currentLang === 'hi' && hindiLetters[index]) {
+                    button.textContent = hindiLetters[index];
+                } else {
+                    button.textContent = englishLetter;
+                }
+                
+                alphabetContainer.appendChild(button);
+            });
+        }
+
+        // Enhanced search functionality with autocomplete suggestions
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Condition search script loaded');
+            
+            const searchInput = document.querySelector('.search-input-ref');
+            const searchButton = document.querySelector('.search-button-ref');
+            const filterDropdown = document.querySelector('#condition-filter');
+            const suggestionsDropdown = document.querySelector('#searchSuggestions');
+            
+            console.log('Search input:', searchInput);
+            console.log('Search button:', searchButton);
+            console.log('Filter dropdown:', filterDropdown);
+            console.log('Suggestions dropdown:', suggestionsDropdown);
+            
+            if (!searchInput || !searchButton || !suggestionsDropdown) {
+                console.error('Required elements not found');
+                return;
+            }
+            
+            // Get all searchable elements and build suggestions data
+            const allConditions = document.querySelectorAll('.quick-link-card-verywell, .condition-link-ref');
+            const allSections = document.querySelectorAll('.alphabet-section');
+            
+            console.log('Found conditions:', allConditions.length);
+            console.log('Found sections:', allSections.length);
+            
+            // Build suggestions database
+            const suggestionsData = [];
+            allConditions.forEach(condition => {
+                let title = '';
+                let description = '';
+                let category = condition.getAttribute('data-category') || '';
+                let href = condition.getAttribute('href') || '#';
+                let icon = '';
+                
+                if (condition.classList.contains('quick-link-card-verywell')) {
+                    const titleElement = condition.querySelector('h3');
+                    const descElement = condition.querySelector('p');
+                    const iconElement = condition.querySelector('i');
+                    
+                    title = titleElement ? titleElement.textContent : '';
+                    description = descElement ? descElement.textContent : '';
+                    icon = iconElement ? iconElement.className : 'fas fa-heart';
+                } else {
+                    title = condition.textContent;
+                    description = `Learn about ${title.toLowerCase()}`;
+                    icon = 'fas fa-info-circle';
+                }
+                
+                if (title) {
+                    suggestionsData.push({
+                        title: title,
+                        description: description,
+                        category: category,
+                        href: href,
+                        icon: icon,
+                        element: condition
+                    });
+                }
+            });
+            
+            console.log('Built suggestions database:', suggestionsData.length, 'items');
+            
+            // Current filters
+            let currentSearchTerm = '';
+            let currentCategory = 'all';
+            let currentLetter = 'ALL';
+            let selectedSuggestionIndex = -1;
+            
+            // Show suggestions
+            function showSuggestions(searchTerm) {
+                if (searchTerm.length < 1) {
+                    hideSuggestions();
+                    return;
+                }
+                
+                const matchingSuggestions = suggestionsData.filter(item => 
+                    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+                ).slice(0, 8); // Limit to 8 suggestions
+                
+                if (matchingSuggestions.length === 0) {
+                    hideSuggestions();
+                    return;
+                }
+                
+                let html = '';
+                matchingSuggestions.forEach((item, index) => {
+                    const categoryName = item.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    html += `
+                        <div class="suggestion-item" data-index="${index}" data-title="${item.title}" data-href="${item.href}">
+                            <div class="suggestion-icon">
+                                <i class="${item.icon}"></i>
+                            </div>
+                            <div class="suggestion-text">
+                                <div class="suggestion-title">${highlightMatch(item.title, searchTerm)}</div>
+                                <div class="suggestion-description">${item.description}</div>
+                            </div>
+                            ${item.category ? `<div class="suggestion-category">${categoryName}</div>` : ''}
+                        </div>
+                    `;
+                });
+                
+                suggestionsDropdown.innerHTML = html;
+                suggestionsDropdown.classList.add('show');
+                selectedSuggestionIndex = -1;
+                
+                // Add click handlers to suggestions
+                suggestionsDropdown.querySelectorAll('.suggestion-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const title = this.getAttribute('data-title');
+                        const href = this.getAttribute('data-href');
+                        
+                        searchInput.value = title;
+                        hideSuggestions();
+                        
+                        if (href && href !== '#') {
+                            window.location.href = href;
+                        } else {
+                            performSearch();
+                        }
+                    });
+                });
+            }
+            
+            // Hide suggestions
+            function hideSuggestions() {
+                suggestionsDropdown.classList.remove('show');
+                selectedSuggestionIndex = -1;
+            }
+            
+            // Highlight matching text
+            function highlightMatch(text, searchTerm) {
+                if (!searchTerm) return text;
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                return text.replace(regex, '<strong style="color: #4CAF50;">$1</strong>');
+            }
+            
+            // Handle keyboard navigation
+            function handleKeyboardNavigation(e) {
+                const suggestions = suggestionsDropdown.querySelectorAll('.suggestion-item');
+                
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    selectedSuggestionIndex = Math.min(selectedSuggestionIndex + 1, suggestions.length - 1);
+                    updateSuggestionHighlight(suggestions);
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    selectedSuggestionIndex = Math.max(selectedSuggestionIndex - 1, -1);
+                    updateSuggestionHighlight(suggestions);
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (selectedSuggestionIndex >= 0 && suggestions[selectedSuggestionIndex]) {
+                        suggestions[selectedSuggestionIndex].click();
+                    } else {
+                        performSearch();
+                        hideSuggestions();
+                    }
+                } else if (e.key === 'Escape') {
+                    hideSuggestions();
+                    searchInput.blur();
+                }
+            }
+            
+            // Update suggestion highlight
+            function updateSuggestionHighlight(suggestions) {
+                suggestions.forEach((item, index) => {
+                    if (index === selectedSuggestionIndex) {
+                        item.classList.add('highlighted');
+                    } else {
+                        item.classList.remove('highlighted');
+                    }
+                });
+            }
+            
+            // Search function
+            function performSearch() {
+                currentSearchTerm = searchInput.value.toLowerCase().trim();
+                console.log('Searching for:', currentSearchTerm);
+                applyFilters();
+            }
+            
+            // Apply all filters (search, category, letter)
+            function applyFilters() {
+                console.log('Applying filters - Search:', currentSearchTerm, 'Category:', currentCategory, 'Letter:', currentLetter);
+                
+                let foundResults = false;
+                
+                // First hide all sections
+                allSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Apply filters to each condition
+                allConditions.forEach(condition => {
+                    let shouldShow = true;
+                    
+                    // Get condition text and category
+                    let conditionText = '';
+                    let conditionCategory = condition.getAttribute('data-category') || '';
+                    
+                    if (condition.classList.contains('quick-link-card-verywell')) {
+                        const titleElement = condition.querySelector('h3');
+                        conditionText = titleElement ? titleElement.textContent.toLowerCase() : '';
+                    } else {
+                        conditionText = condition.textContent.toLowerCase();
+                    }
+                    
+                    // Check search term filter
+                    if (currentSearchTerm && !conditionText.includes(currentSearchTerm)) {
+                        shouldShow = false;
+                    }
+                    
+                    // Check category filter
+                    if (currentCategory !== 'all' && conditionCategory !== currentCategory) {
+                        shouldShow = false;
+                    }
+                    
+                    // Check letter filter
+                    if (currentLetter !== 'ALL') {
+                        const parentSection = condition.closest('.alphabet-section');
+                        if (parentSection) {
+                            const sectionHeader = parentSection.querySelector('.alphabet-header');
+                            if (!sectionHeader || sectionHeader.textContent.trim() !== currentLetter) {
+                                shouldShow = false;
+                            }
+                        }
+                    }
+                    
+                    // Show or hide condition
+                    if (shouldShow) {
+                        condition.style.display = '';
+                        
+                        // Show the parent section
+                        const parentSection = condition.closest('.alphabet-section');
+                        if (parentSection) {
+                            parentSection.style.display = '';
+                            foundResults = true;
+                        }
+                        
+                        // Show parent row if it exists
+                        const parentRow = condition.closest('.condition-row-ref');
+                        if (parentRow) {
+                            parentRow.style.display = '';
+                        }
+                    } else {
+                        condition.style.display = 'none';
+                    }
+                });
+                
+                // Show no results message if needed
+                if (!foundResults) {
+                    showNoResults();
+                } else {
+                    hideNoResults();
+                }
+            }
+            
+            // Reset display to show all items
+            function resetDisplay() {
+                console.log('Resetting display');
+                allConditions.forEach(condition => {
+                    condition.style.display = '';
+                    const parentRow = condition.closest('.condition-row-ref');
+                    if (parentRow) {
+                        parentRow.style.display = '';
+                    }
+                });
+                allSections.forEach(section => {
+                    section.style.display = '';
+                });
+                hideNoResults();
+            }
+            
+            // Show no results message
+            function showNoResults() {
+                hideNoResults(); // Remove existing message first
+                
+                const noResultsDiv = document.createElement('div');
+                noResultsDiv.className = 'search-no-results';
+                
+                let message = 'No conditions found';
+                let subMessage = 'Try adjusting your search terms or filters.';
+                
+                if (currentSearchTerm && currentCategory !== 'all') {
+                    message = `No "${currentCategory.replace('-', ' ')}" conditions found for "${currentSearchTerm}"`;
+                } else if (currentSearchTerm) {
+                    message = `No conditions found for "${currentSearchTerm}"`;
+                } else if (currentCategory !== 'all') {
+                    message = `No conditions found in "${currentCategory.replace('-', ' ')}" category`;
+                }
+                
+                noResultsDiv.innerHTML = `
+                    <div style="text-align: center; padding: 3rem 1rem; color: #666; background: #f9f9f9; border-radius: 10px; margin: 2rem 0;">
+                        <i class="fas fa-search" style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5; color: #999;"></i>
+                        <h3 style="color: #333; margin-bottom: 0.5rem;">${message}</h3>
+                        <p style="margin: 0; color: #666;">${subMessage}</p>
+                    </div>
+                `;
+                
+                // Insert after the search section
+                const headerSection = document.querySelector('.conditions-header-section');
+                if (headerSection) {
+                    headerSection.insertAdjacentElement('afterend', noResultsDiv);
+                }
+            }
+            
+            // Hide no results message
+            function hideNoResults() {
+                const noResultsDiv = document.querySelector('.search-no-results');
+                if (noResultsDiv) {
+                    noResultsDiv.remove();
+                }
+            }
+            
+            // Event listeners
+            searchButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Search button clicked');
+                hideSuggestions();
+                performSearch();
+            });
+            
+            searchInput.addEventListener('keydown', handleKeyboardNavigation);
+            
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter' && selectedSuggestionIndex === -1) {
+                    console.log('Enter key pressed');
+                    hideSuggestions();
+                    performSearch();
+                }
+            });
+            
+            searchInput.addEventListener('input', function() {
+                const value = this.value.trim();
+                
+                // Show suggestions for typing
+                if (value.length > 0) {
+                    showSuggestions(value);
+                } else {
+                    hideSuggestions();
+                }
+                
+                // Real-time search with delay
+                clearTimeout(this.searchTimeout);
+                this.searchTimeout = setTimeout(() => {
+                    currentSearchTerm = value.toLowerCase();
+                    if (currentSearchTerm === '' && currentCategory === 'all' && currentLetter === 'ALL') {
+                        resetDisplay();
+                    } else {
+                        applyFilters();
+                    }
+                }, 300);
+            });
+            
+            searchInput.addEventListener('focus', function() {
+                if (this.value.trim().length > 0) {
+                    showSuggestions(this.value.trim());
+                }
+            });
+            
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !suggestionsDropdown.contains(e.target)) {
+                    hideSuggestions();
+                }
+            });
+            
+            // Dropdown filter event listener
+            if (filterDropdown) {
+                filterDropdown.addEventListener('change', function() {
+                    currentCategory = this.value;
+                    console.log('Category filter changed to:', currentCategory);
+                    hideSuggestions();
+                    applyFilters();
+                });
+            }
+            
+            // Generate alphabet navigation
+            generateAlphabetNavigation();
+            
+            // Alphabet navigation - dynamically generated
+            function attachAlphabetEventListeners() {
+                const alphabetButtons = document.querySelectorAll('.alphabet-btn-ref');
+                alphabetButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        console.log('Alphabet button clicked:', this.textContent);
+                        
+                        // Clear search and hide suggestions
+                        searchInput.value = '';
+                        currentSearchTerm = '';
+                        hideSuggestions();
+                        hideNoResults();
+                        
+                        // Remove active class from all buttons
+                        alphabetButtons.forEach(btn => btn.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        currentLetter = this.getAttribute('data-letter');
+                        
+                        if (currentLetter === 'ALL') {
+                            // Show all sections based on current category filter
+                            applyFilters();
+                        } else if (currentLetter) {
+                            // Apply letter filter
+                            applyFilters();
+                            
+                            // Scroll to the first visible section
+                            setTimeout(() => {
+                                const visibleSection = document.querySelector('.alphabet-section[style=""], .alphabet-section:not([style*="display: none"])');
+                                if (visibleSection) {
+                                    visibleSection.scrollIntoView({ 
+                                        behavior: 'smooth', 
+                                        block: 'start' 
+                                    });
+                                }
+                            }, 100);
+                        }
+                    });
+                });
+            }
+            
+            // Attach initial event listeners
+            attachAlphabetEventListeners();
+            
+            // Listen for language changes and regenerate alphabet
+            window.addEventListener('languageChanged', function() {
+                setTimeout(() => {
+                    generateAlphabetNavigation();
+                    attachAlphabetEventListeners();
+                }, 200);
+            });
+            
+            console.log('Enhanced search and autocomplete functionality initialized successfully');
+        });
+    </script>
+    <script src="search-functionality.js"></script>
+    <script src="universal-language-system.js"></script>
+    <div id="toast-notification"></div>
+</body>
+</html>

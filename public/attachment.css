@@ -1,0 +1,245 @@
+/* Image Hover Zoom Effects */
+img {
+    transition: transform 0.3s ease !important;
+    cursor: pointer;
+}
+
+img:hover {
+    transform: scale(1.1) !important;
+}
+
+/* --- Attachment Quiz Page Specific Styles --- */
+
+/* This hides the main navigation sidebar on this specific page */
+.main-content-with-sidebar {
+    display: none;
+}
+
+/* Main layout container for the quiz page */
+.quiz-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Left sidebar is fixed, right content is flexible */
+    gap: 40px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Styles for the "TAKE A QUIZ" list card (left side) */
+.quiz-list-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+    position: sticky; /* Keeps the card visible as the user scrolls */
+    top: 24px;
+    height: fit-content;
+    margin: 0; /* Remove any external margins */
+}
+
+.quiz-list-title {
+    font-size: 1em;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.quiz-list-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-list-card li {
+    margin-bottom: 0;
+}
+
+.quiz-list-card li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+    font-size: 0.96em;
+}
+
+.quiz-list-card li:first-child a {
+    padding-top: 0;
+}
+
+.quiz-list-card li:last-child a {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.quiz-list-card li a:hover {
+    background-color: #f8f9fa;
+}
+
+.quiz-list-text {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.quiz-list-text h3 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.quiz-list-icon {
+    font-size: 1.4em;
+    color: #2E4C4C;
+}
+
+/* Specific icon colors */
+.quiz-list-card li:nth-child(2) .quiz-list-text h3 {
+    color: #e53e3e;
+}
+
+.quiz-list-card li:nth-child(2) .quiz-list-icon {
+    color: #e53e3e;
+}
+
+.quiz-list-card li:nth-child(3) .quiz-list-icon {
+    font-size: 1.1em;
+}
+
+/* Styles for the main quiz content area (right side) */
+.quiz-main-content {
+    width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Quiz question display styles */
+.quiz-question-wrapper {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.quiz-question-wrapper.active {
+    display: block;
+    opacity: 1;
+}
+
+.quiz-question {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.quiz-question:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.quiz-question p {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2d3748;
+    line-height: 1.5;
+}
+
+.quiz-option {
+    margin-bottom: 15px;
+}
+
+.quiz-option input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.1);
+}
+
+.quiz-option label {
+    font-size: 1em;
+    cursor: pointer;
+    color: #4a5568;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+}
+
+.quiz-option label input {
+    margin-top: 4px;
+}
+
+.card-button {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.card-button:hover {
+    background-color: #c53030;
+}
+
+/* Quiz results styles */
+.quiz-results {
+    text-align: left;
+    padding: 30px;
+}
+
+.quiz-results h2 {
+    color: #2d3748;
+    margin-bottom: 20px;
+}
+
+.quiz-results h3 {
+    color: #e53e3e;
+    margin: 25px 0 15px;
+}
+
+.quiz-results p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Past results section */
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header i {
+    color: #e53e3e;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.card-header h3 {
+    margin: 0;
+    color: #2d3748;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .quiz-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 97vw;
+    }
+    .quiz-list-card {
+        position: static;
+        max-width: 100%;
+        margin-bottom: 18px;
+    }
+}

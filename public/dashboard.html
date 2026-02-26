@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">      
+    
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="circular-features.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="header-scroll.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+    <div class="header-top-row">
+        <div class="user-info-right">
+            <span data-translate="Logged in as:">Logged in as:</span> <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> <span data-translate="Logout">Logout</span></a>
+        </div>
+    </div>
+    <div class="brand-logo main-logo">
+            <img src="images/clario.png" alt="Clario Brain Logo " class="logo-img">
+    </div> 
+    <nav class="top-nav">
+        <ul>
+            <li class="nav-logo">
+                <img src="images/clario.png" alt="Clario Brain Logo" class="logo-img-small">
+            </li>
+            
+            <li class="active"><a href="dashboard.html" title="Dashboard" data-translate-title="Dashboard"><i class="fas fa-home"></i></a></li>
+
+            <li class="dropdown">
+                <a href="condition-az.html" data-translate="Condition A-Z">Condition A-Z</a>
+                <ul class="dropdown-menu">
+                    <li><a href="anxiety.html" data-translate="Anxiety">Anxiety</a></li>
+                    <li><a href="depression.html" data-translate="Depression">Depression</a></li>
+                    <li><a href="sleep-disorder.html" data-translate="Sleep Disorder">Sleep Disorder</a></li>
+                    <li><a href="condition-az.html" data-translate="View More">View More</a></li>
+                    <li><a href="face-analysis.html"><i class="fas fa-user-astronaut"></i> <span data-translate="Face Analysis">Face Analysis</span></a></li>
+                </ul>
+            </li>
+            <li><a href="journal.html" data-translate="Journal">Journal</a></li>
+            <li><a href="practice.html" data-translate="Wellness Practice">Wellness Practice</a></li>
+            <li><a href="question.html" data-translate="Daily Question">Daily Question</a></li>
+            <li><a href="quiz.html" data-translate="Quiz">Quiz</a></li>
+            <li><a href="chat.html" data-translate="Chat with AI">Chat with AI</a></li>
+            <li class="search-container">
+                <div class="search-toggle" id="searchToggle">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+                <div class="search-box" id="searchBox">
+                    <input type="text" id="searchInput" placeholder="Search wellness topics..." data-translate-placeholder="Search wellness topics..." autocomplete="off">
+                    <div class="search-results" id="searchResults"></div>
+                    <button class="search-close" id="searchClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="language-container">
+                <div class="language-toggle" id="languageToggle">
+                    <i class="fas fa-globe language-icon"></i>
+                    <span class="current-lang" id="currentLang" data-translate="EN">EN</span>
+                </div>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option" data-lang="en">
+                        <div class="flag-icon flag-en">🇺🇸</div>
+                        <span data-translate="English">English</span>
+                        <small data-translate="Default">Default</small>
+                    </div>
+                    <div class="language-option" data-lang="hi">
+                        <div class="flag-icon flag-hi">🇮🇳</div>
+                        <span>हिंदी</span>
+                        <small data-translate="Hindi">Hindi</small>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+        <!-- <div class="dashboard-horizontal-section">        
+        </div> -->
+
+        <main class="main-content-no-sidebar">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-headline" data-translate="Your safe space for mental wellness">Your safe space for mental wellness</h1>
+                    <p class="hero-paragraph" data-translate="Hero description">In a world that demands so much, finding a place to simply be is essential. We've created a secure, professional, and welcoming environment for you to care for your mind. Whether you're navigating challenges or seeking personal growth, our doors are open.</p>
+                </div>
+            </section>
+
+            <!-- Interactive Circular Feature Section -->
+            <section class="circular-features-section">
+                <!-- Decorative background elements -->
+                <div class="section-graphics">
+                    <div class="graphic-circle circle-1"></div>
+                    <div class="graphic-circle circle-2"></div>
+                    <div class="graphic-wave wave-1"></div>
+                    <div class="graphic-wave wave-2"></div>
+                </div>
+                <div class="circular-container">
+                    <!-- Center circle -->
+                    <div class="center-circle">
+                        <!-- Add decorative SVG background -->
+                        <svg class="center-decoration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" style="stop-color:rgba(76, 175, 80, 0.1);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:rgba(46, 125, 50, 0.05);stop-opacity:0" />
+                                </radialGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="80" fill="url(#centerGradient)" />
+                            <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(76, 175, 80, 0.2)" stroke-width="1" opacity="0.6">
+                                <animate attributeName="r" values="60;70;60" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(139, 195, 74, 0.3)" stroke-width="1" opacity="0.4">
+                                <animate attributeName="r" values="40;50;40" dur="6s" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                        <div class="center-icon">
+                            <img src="images/clario2.png" alt="Clario" />
+                        </div>
+                        <h3 data-translate="Mental Health AI">Mental Health<br/>AI</h3>
+                    </div>
+
+                    <!-- Circular ring that contains items -->
+                    <div class="circle" style="--n:8; --radius:220px;">
+                        <!-- 8 items evenly distributed using --i index -->
+                        <div class="item" style="--i:0;" role="button" tabindex="0" aria-label="Anxiety Assessment" data-href="anxiety.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-heart-pulse"></i></div>
+                                <div class="label" data-translate="Anxiety">Anxiety</div>
+                            </div>
+                        </div>
+                        <div class="item" style="--i:1;" role="button" tabindex="0" aria-label="Depression Analysis" data-href="depression.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-brain"></i></div>
+                                <div class="label" data-translate="Depression">Depression</div>
+                            </div>
+                        </div>
+                        <div class="item" style="--i:2;" role="button" tabindex="0" aria-label="Sleep Tracking" data-href="sleeptracker.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-bed"></i></div>
+                                <div class="label" data-translate="Sleep">Sleep</div>
+                            </div>
+                        </div>
+                        <div class="item" style="--i:3;" role="button" tabindex="0" aria-label="Wellness Practice" data-href="practice.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-spa"></i></div>
+                                <div class="label" data-translate="Practice">Practice</div>
+                            </div>
+                        </div>
+                        <div class="item" style="--i:4;" role="button" tabindex="0" aria-label="Journal" data-href="journal.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-book-open"></i></div>
+                                <div class="label" data-translate="Journal">Journal</div>
+                            </div>
+                        </div>
+                        <div class="item" style="--i:5;" role="button" tabindex="0" aria-label="Chat with AI" data-href="chat.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-comments"></i></div>
+                                <div class="label" data-translate="Chat">Chat</div>
+                            </div>
+                        </div>
+                        <div class="item" style="--i:6;" role="button" tabindex="0" aria-label="Panic Relief" data-href="panic.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                                <div class="label" data-translate="Panic">Panic</div>
+                            </div>
+                        </div>
+                        <div class="item" style="--i:7;" role="button" tabindex="0" aria-label="For You Today" data-href="condition-az.html">
+                            <div class="content">
+                                <div class="icon"><i class="fas fa-star"></i></div>
+                                <div class="label" data-translate="For You">For You</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Global Presence Section -->
+            <section class="global-presence-section">
+                <div class="global-container">
+                    <h2 class="global-title" data-translate="Our global presence">Global Mental Health Problems</h2>
+                    <div class="world-map-container">
+                        <div class="interactive-world-map">
+                            <img src="images/world.png" alt="World map showing global mental health conditions" class="world-map-base">
+                            
+                            <!-- Mental Health Condition Overlays by Region -->
+                            <div class="mental-health-overlay anxiety-region" style="top: 30%; left: 20%;" data-condition="Anxiety Disorders">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="North America">North America</strong><br>
+                                    <span data-translate="Anxiety Disorders">Anxiety Disorders</span><br>
+                                    <span data-translate="40M+ affected">40M+ affected</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mental-health-overlay depression-region" style="top: 25%; left: 50%;" data-condition="Depression">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Europe">Europe</strong><br>
+                                    <span data-translate="Depression">Depression</span><br>
+                                    <span data-translate="164M+ affected">164M+ affected</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mental-health-overlay stress-region" style="top: 35%; left: 75%;" data-condition="Work Stress">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Asia">Asia</strong><br>
+                                    Work-related Stress<br>
+                                    <span>615M+ affected</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mental-health-overlay ptsd-region" style="top: 52%; left: 52%;" data-condition="PTSD">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Africa">Africa</strong><br>
+                                    PTSD & Trauma<br>
+                                    <span>70M+ affected</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mental-health-overlay bipolar-region" style="top: 65%; left: 15%;" data-condition="Bipolar">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="South America">South America</strong><br>
+                                    Bipolar Disorder<br>
+                                    <span>45M+ affected</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mental-health-overlay ocd-region" style="top: 70%; left: 85%;" data-condition="OCD">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Australia">Australia</strong><br>
+                                    OCD<br>
+                                    <span>2.3M+ affected</span>
+                                </div>
+                            </div>
+
+                            <!-- Additional Mental Health Conditions -->
+                            <div class="mental-health-overlay eating-disorders-region" style="top: 20%; left: 18%;" data-condition="Eating Disorders">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Canada">Canada</strong><br>
+                                    Eating Disorders<br>
+                                    <span>1M+ affected</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay addiction-region" style="top: 40%; left: 12%;" data-condition="Addiction">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Mexico">Mexico</strong><br>
+                                    Substance Abuse<br>
+                                    <span>2.8M+ affected</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay schizophrenia-region" style="top: 30%; left: 60%;" data-condition="Schizophrenia">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Eastern Europe">Eastern Europe</strong><br>
+                                    Schizophrenia<br>
+                                    <span>24M+ affected globally</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay adhd-region" style="top: 15%; left: 48%;" data-condition="ADHD">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Scandinavia">Scandinavia</strong><br>
+                                    ADHD<br>
+                                    <span>366M+ affected</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay suicide-region" style="top: 32%; left: 82%;" data-condition="Suicide Risk">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="East Asia">East Asia</strong><br>
+                                    Suicide Prevention<br>
+                                    <span>800K+ deaths annually</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay dementia-region" style="top: 35%; left: 92%;" data-condition="Dementia">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Japan">Japan</strong><br>
+                                    Dementia<br>
+                                    <span>55M+ affected globally</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay social-anxiety-region" style="top: 40%; left: 70%;" data-condition="Social Anxiety">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="South Asia">South Asia</strong><br>
+                                    Social Anxiety<br>
+                                    <span>200M+ affected</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay seasonal-depression-region" style="top: 12%; left: 45%;" data-condition="Seasonal Depression">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Northern Europe">Northern Europe</strong><br>
+                                    Seasonal Depression<br>
+                                    <span>10M+ affected</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay personality-disorders-region" style="top: 55%; left: 55%;" data-condition="Personality Disorders">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Middle East">Middle East</strong><br>
+                                    Personality Disorders<br>
+                                    <span>15% population affected</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay panic-disorders-region" style="top: 45%; left: 35%;" data-condition="Panic Disorders">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="North Africa">North Africa</strong><br>
+                                    Panic Disorders<br>
+                                    <span>6M+ affected</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay sleep-disorders-region" style="top: 75%; left: 30%;" data-condition="Sleep Disorders">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="Argentina">Argentina</strong><br>
+                                    Sleep Disorders<br>
+                                    <span>100M+ affected globally</span>
+                                </div>
+                            </div>
+
+                            <div class="mental-health-overlay burnout-region" style="top: 70%; left: 75%;" data-condition="Burnout">
+                                <div class="condition-marker"></div>
+                                <div class="condition-label">
+                                    <strong data-translate="New Zealand">New Zealand</strong><br>
+                                    <span data-translate="Professional Burnout">Professional Burnout</span><br>
+                                    <span data-translate="76% workers affected">76% workers affected</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Legend -->
+                    <div class="map-legend">
+                        <div class="legend-item anxiety-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Anxiety Disorders">Anxiety Disorders</span>
+                        </div>
+                        <div class="legend-item depression-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Depression">Depression</span>
+                        </div>
+                        <div class="legend-item stress-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Work Stress">Work Stress</span>
+                        </div>
+                        <div class="legend-item ptsd-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="PTSD & Trauma">PTSD & Trauma</span>
+                        </div>
+                        <div class="legend-item bipolar-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Bipolar Disorder">Bipolar Disorder</span>
+                        </div>
+                        <div class="legend-item ocd-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="OCD">OCD</span>
+                        </div>
+                        <div class="legend-item eating-disorders-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Eating Disorders">Eating Disorders</span>
+                        </div>
+                        <div class="legend-item addiction-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Substance Abuse">Substance Abuse</span>
+                        </div>
+                        <div class="legend-item schizophrenia-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Schizophrenia">Schizophrenia</span>
+                        </div>
+                        <div class="legend-item adhd-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="ADHD">ADHD</span>
+                        </div>
+                        <div class="legend-item suicide-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Suicide Prevention">Suicide Prevention</span>
+                        </div>
+                        <div class="legend-item dementia-legend">
+                            <div class="legend-color"></div>
+                            <span data-translate="Dementia">Dementia</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Statistics -->
+                    <div class="global-stats">
+                        <div class="stat-item" data-progress="80">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill"></div>
+                            </div>
+                            <div class="stat-content">
+                                <h3 data-translate="970M+">970M+</h3>
+                                <p data-translate="People affected by mental health conditions worldwide">People affected by mental health conditions worldwide</p>
+                            </div>
+                        </div>
+                        <div class="stat-item" data-progress="60">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill"></div>
+                            </div>
+                            <div class="stat-content">
+                                <h3 data-translate="1 in 4">1 in 4</h3>
+                                <p data-translate="People will experience a mental health problem each year">People will experience a mental health problem each year</p>
+                            </div>
+                        </div>
+                        <div class="stat-item" data-progress="90">
+                            <div class="stat-icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill"></div>
+                            </div>
+                            <div class="stat-content">
+                                <h3 data-translate="50+">50+</h3>
+                                <p data-translate="Countries where we provide mental health support">Countries where we provide mental health support</p>
+                            </div>
+                        </div>
+                        <div class="stat-item" data-progress="100">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-fill"></div>
+                            </div>
+                            <div class="stat-content">
+                                <h3 data-translate="24/7">24/7</h3>
+                                <p data-translate="Round-the-clock support available globally">Round-the-clock support available globally</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="verywell-quick-links">
+                <!-- Add decorative graphics -->
+                <div class="quick-links-graphics">
+                    <div class="graphic-hexagon hex-1"></div>
+                    <div class="graphic-hexagon hex-2"></div>
+                    <div class="graphic-line line-1"></div>
+                    <div class="graphic-line line-2"></div>
+                </div>
+                <a href="condition-az.html" class="quick-link-card-verywell">
+                    <i class="fas fa-notes-medical"></i>
+                    <h3 data-translate="Condition A-Z">Condition A-Z</h3>
+                    <p data-translate="Explore various health topics.">Explore various health topics.</p>
+                </a>
+                <a href="practice.html" class="quick-link-card-verywell">
+                    <i class="fas fa-spa"></i>
+                    <h3 data-translate="Wellness Practice">Wellness Practice</h3>
+                    <p data-translate="Improve your mental health and find calm.">Improve your mental health and find calm.</p>
+                </a>
+                <a href="journal.html" class="quick-link-card-verywell">
+                    <i class="fas fa-book-open"></i>
+                    <h3 data-translate="Journal">Journal</h3>
+                    <p data-translate="Write down your daily thoughts and feelings.">Write down your daily thoughts and feelings.</p>
+                </a>
+                <a href="quiz.html" class="quick-link-card-verywell">
+                    <i class="fas fa-vial-circle-check"></i>
+                    <h3 data-translate="Quiz Section">Quiz Section</h3>
+                    <p data-translate="Test your wellness knowledge.">Test your wellness knowledge.</p>
+                </a>
+                <a href="chat.html" class="quick-link-card-verywell">
+                    <i class="fas fa-comments"></i>
+                    <h3 data-translate="Chat with AI">Chat with AI</h3>
+                    <p data-translate="Talk with your wellness assistant.">Talk with your wellness assistant.</p>
+                </a>
+                <a href="sleeptracker.html" class="quick-link-card-verywell">
+                    <i class="fas fa-bed"></i>
+                    <h3 data-translate="Sleep Log">Sleep Log</h3>
+                    <p data-translate="Track your nightly sleep patterns.">Track your nightly sleep patterns.</p>
+                </a>
+            </section>
+            <section id="dashboard-grid">
+                <div class="card card-check-in">
+                    <div class="card-header">
+                        <i class="fas fa-hand-sparkles"></i>
+                        <h3 data-translate="Your Daily Check-in">Your Daily Check-in</h3>
+                    </div>
+                    <p id="daily-check-in-question" data-translate="Loading your question...">Loading your question...</p>
+                    <a href="question.html" class="card-button" data-translate="Answer Now">Answer Now</a>
+                </div>
+                <div class="card card-recommendations">
+                    <div class="card-header">
+                        <i class="fas fa-star"></i>
+                        <h3 data-translate="For You Today">For You Today</h3>
+                    </div>
+                    <ul id="recommendations-list">
+                        <li data-translate="Loading recommendations...">Loading recommendations...</li>
+                    </ul>
+                </div>
+                <div class="card card-sleep-analysis">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3 data-translate="Your Sleep Log">Your Sleep Log </h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="dashboardSleepChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="sleepQualityPieChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section - Footer Style -->
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-brand">
+                        <div class="about-logo">
+                            <img src="images/clario.png" alt="Clario" class="about-logo-img">
+                            <h2 data-translate="Clario">Clario</h2>
+                        </div>
+                        <div class="certification-badge">
+                            <div class="badge-circle">
+                                <span class="badge-letter">C</span>
+                            </div>
+                            <div class="badge-text">
+                                <p data-translate="Certified">Certified</p>
+                                <small data-translate="Platform certification">This platform meets high standards of mental health and wellness support.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-columns">
+                        <div class="about-column">
+                            <h3 data-translate="Services">Services</h3>
+                            <ul>
+                                <li><a href="anxiety.html"><i class="fas fa-leaf"></i> <span data-translate="Anxiety Support">Anxiety Support</span></a></li>
+                                <li><a href="depression.html"><i class="fas fa-leaf"></i> <span data-translate="Depression Care">Depression Care</span></a></li>
+                                <li><a href="sleeptracker.html"><i class="fas fa-leaf"></i> <span data-translate="Sleep Wellness">Sleep Wellness</span></a></li>
+                                <li><a href="practice.html"><i class="fas fa-leaf"></i> <span data-translate="Mindfulness Practice">Mindfulness Practice</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Resources">Resources</h3>
+                            <ul>
+                                <li><a href="condition-az.html" data-translate="Mental Health A-Z">Mental Health A-Z</a></li>
+                                <li><a href="panic.html" data-translate="Crisis Support">Crisis Support</a></li>
+                                <li><a href="ocd.html" data-translate="OCD Resources">OCD Resources</a></li>
+                                <li><a href="gaslighting.html" data-translate="Relationship Support">Relationship Support</a></li>
+                                <li><a href="face-analysis.html" data-translate="Emotion Analysis">Emotion Analysis</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Tools">Tools</h3>
+                            <ul>
+                                <li><a href="journal.html" data-translate="Daily Journal">Daily Journal</a></li>
+                                <li><a href="question.html" data-translate="Check-in Questions">Check-in Questions</a></li>
+                                <li><a href="quiz.html" data-translate="Wellness Assessments">Wellness Assessments</a></li>
+                                <li><a href="chat.html" data-translate="AI Chat Support">AI Chat Support</a></li>
+                                <li><a href="attachment.html" data-translate="Attachment Insights">Attachment Insights</a></li>
+                                <li><a href="emotion.html" data-translate="Emotion Tracking">Emotion Tracking</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Quick Links">Quick Links</h3>
+                            <ul>
+                                <li><a href="dashboard.html" data-translate="About Us">About Us</a></li>
+                                <li><a href="#case-study" data-translate="Success Stories">Success Stories</a></li>
+                                <li><a href="#knowledge" data-translate="Wellness Library">Wellness Library</a></li>
+                                <li><a href="#careers" data-translate="Join Our Team">Join Our Team</a></li>
+                                <li><a href="#partner" data-translate="Become a Partner">Become a Partner</a></li>
+                                <li><a href="#connect" data-translate="Connect With Us">Connect With Us</a></li>
+                                <li><a href="#news" data-translate="Latest Updates">Latest Updates</a></li>
+                                <li><a href="#legal" data-translate="Privacy & Terms">Privacy & Terms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Large Background Text -->
+                <div class="about-background-text" data-translate="Clario">Clario</div>
+
+                <!-- Footer Bottom -->
+                <div class="about-footer">
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright" data-translate="Copyright">© 2025 Clario Mental Wellness Solutions Private Limited</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.script.js"></script>
+        <script>
+            (function(){
+                const items = document.querySelectorAll('.circle .item');
+                const center = document.querySelector('.center-circle');
+
+                function clearActive(){
+                    items.forEach(i=>i.classList.remove('active'));
+                }
+
+                function activate(item){
+                    clearActive();
+                    item.classList.add('active');
+                    center.classList.add('pulse');
+                    setTimeout(()=>center.classList.remove('pulse'),900);
+                }
+
+                items.forEach(item=>{
+                    item.addEventListener('click', e=>{
+                        activate(item);
+                        const href = item.getAttribute('data-href');
+                        if(href) window.location.href = href;
+                    });
+
+                    item.addEventListener('keydown', e=>{
+                        if(e.key === 'Enter' || e.key === ' '){
+                            e.preventDefault();
+                            item.click();
+                        }
+                        // allow arrow keys to move focus
+                        if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){
+                            const next = item.nextElementSibling || items[0];
+                            next.focus();
+                        }
+                        if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
+                            const prev = item.previousElementSibling || items[items.length-1];
+                            prev.focus();
+                        }
+                    });
+
+                    item.addEventListener('focus', ()=>activate(item));
+                    item.addEventListener('mouseenter', ()=>activate(item));
+                });
+            })();
+        </script>
+    <div id="toast-notification"></div>
+    
+    <!-- Language Loading Overlay -->
+    <div class="language-loading" id="languageLoading">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3 id="loadingText">Switching Language...</h3>
+            <p id="loadingDesc">Please wait while we update the interface</p>
+        </div>
+    </div>
+    
+    <script src="forrester-stats.js"></script>
+    <script src="search-functionality.js"></script>
+    <script src="universal-language-system.js"></script>
+</body>
+</html>+

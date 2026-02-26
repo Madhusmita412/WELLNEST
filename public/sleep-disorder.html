@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Disorders | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="sleep-disorder-optimized.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* MASTERPIECE SLEEP DISORDERS CONDITION PAGE */
+        
+        body {
+            overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 20% 40%, rgba(79, 70, 229, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(99, 102, 241, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 50% 20%, rgba(67, 56, 202, 0.015) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(238, 242, 255, 0.3) 0%, rgba(233, 242, 254, 0.2) 100%);
+            animation: sleepBackground 75s ease-in-out infinite;
+        }
+        
+        /* Spectacular header effects */
+        .main-header-centered {
+            position: relative;
+            background: linear-gradient(
+                135deg, 
+                #4f46e5 0%, 
+                #6366f1 50%,
+                #4f46e5 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            animation: headerGradientShift 8s ease-in-out infinite;
+            box-shadow: 
+                0 8px 32px rgba(79, 70, 229, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .main-header-centered::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: headerShine 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Premium navigation */
+        .top-nav ul li {
+            animation: navItemSlide 1s ease-out both;
+        }
+        
+        .top-nav ul li:nth-child(1) { animation-delay: 0.1s; }
+        .top-nav ul li:nth-child(2) { animation-delay: 0.2s; }
+        .top-nav ul li:nth-child(3) { animation-delay: 0.3s; }
+        .top-nav ul li:nth-child(4) { animation-delay: 0.4s; }
+        .top-nav ul li:nth-child(5) { animation-delay: 0.5s; }
+        .top-nav ul li:nth-child(6) { animation-delay: 0.6s; }
+        .top-nav ul li:nth-child(7) { animation-delay: 0.7s; }
+        
+        .top-nav ul li.active a {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-2px) scale(1.05) !important;
+            animation: activeNavGlow 3s ease-in-out infinite;
+        }
+        
+        /* Spectacular main title */
+        .content-article header h1 {
+            background: linear-gradient(
+                135deg,
+                #4f46e5 0%,
+                #6366f1 30%,
+                #8b5cf6 70%,
+                #4338ca 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: sleepTitleGradient 8s ease-in-out infinite, titleEntrance 1.5s ease-out;
+            text-shadow: 0 4px 20px rgba(79, 70, 229, 0.3) !important;
+            position: relative;
+            display: inline-block;
+            font-size: 2.8rem !important;
+            margin-bottom: 2rem !important;
+        }
+        
+        .content-article header h1::after {
+            content: '😴🌙';
+            position: absolute;
+            top: -12px;
+            right: -70px;
+            font-size: 1.8rem;
+            animation: sleepIconFloat 6s ease-in-out infinite;
+        }
+        
+        .content-article header h1::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4f46e5, #6366f1, #8b5cf6, #4f46e5);
+            background-size: 300% 100%;
+            border-radius: 3px;
+            animation: sleepTitleUnderline 6s ease-in-out infinite;
+        }
+        
+        /* Premium article layout */
+        .article-layout {
+            animation: layoutSlideIn 1.5s ease-out 0.8s both;
+            position: relative;
+        }
+        
+        .article-layout::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(79, 70, 229, 0.008) 0%, transparent 60%),
+                radial-gradient(circle at 70% 80%, rgba(99, 102, 241, 0.008) 0%, transparent 60%);
+            animation: articleParticles 40s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Spectacular TOC card */
+        .toc.card {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(238, 242, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.9) 100%
+            ) !important;
+            backdrop-filter: blur(25px) !important;
+            border-radius: 30px !important;
+            border: 2px solid rgba(99, 102, 241, 0.15) !important;
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.06),
+                0 10px 30px rgba(99, 102, 241, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+            animation: tocSlideIn 1.5s ease-out 1.2s both;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            position: relative;
+            overflow: hidden;
+            position: sticky !important;
+            top: 20px !important;
+        }
+        
+        .toc.card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.03) 0%, transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(79, 70, 229, 0.02) 0%, transparent 70%);
+            animation: tocParticles 30s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: 30px;
+        }
+        
+        .toc.card:hover {
+            transform: translateY(-8px) scale(1.01) !important;
+            box-shadow: 
+                0 35px 90px rgba(99, 102, 241, 0.12),
+                0 15px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+            border-color: rgba(99, 102, 241, 0.25) !important;
+        }
+        
+        .toc h2 {
+            background: linear-gradient(135deg, #374151, #6366f1) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            background-size: 200% 200% !important;
+            animation: tocTitleGradient 6s ease-in-out infinite;
+            font-size: 1.3rem !important;
+            position: relative;
+            z-index: 2;
+            padding: 25px 25px 15px 25px !important;
+            margin: 0 !important;
+        }
+        
+        .toc ul {
+            position: relative;
+            z-index: 2;
+            list-style: none !important;
+            padding: 0 25px 25px 25px !important;
+            margin: 0 !important;
+        }
+        
+        .toc ul li {
+            animation: tocItemSlide 1s ease-out both;
+            margin-bottom: 12px !important;
+        }
+        
+        .toc ul li:nth-child(1) { animation-delay: 1.5s; }
+        .toc ul li:nth-child(2) { animation-delay: 1.6s; }
+        .toc ul li:nth-child(3) { animation-delay: 1.7s; }
+        .toc ul li:nth-child(4) { animation-delay: 1.8s; }
+        .toc ul li:nth-child(5) { animation-delay: 1.9s; }
+        .toc ul li:nth-child(6) { animation-delay: 2.0s; }
+        
+        .toc ul li a {
+            display: block !important;
+            padding: 12px 20px !important;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.7) 0%,
+                rgba(238, 242, 255, 0.5) 100%
+            ) !important;
+            border-radius: 18px !important;
+            border: 1px solid rgba(99, 102, 241, 0.1) !important;
+            text-decoration: none !important;
+            color: #374151 !important;
+            font-weight: 500 !important;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+        }
+        
+        .toc ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(99, 102, 241, 0.08),
+                transparent
+            );
+            transition: left 0.6s ease;
+        }
+        
+        .toc ul li a:hover {
+            transform: translateX(5px) scale(1.02) !important;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(238, 242, 255, 0.7) 100%
+            ) !important;
+            border-color: rgba(99, 102, 241, 0.25) !important;
+            box-shadow: 
+                0 8px 20px rgba(99, 102, 241, 0.1),
+                0 3px 10px rgba(0, 0, 0, 0.05) !important;
+            color: #6366f1 !important;
+        }
+        
+        .toc ul li a:hover::before {
+            left: 100%;
+        }
+        
+        /* Premium main content area */
+        .content-main {
+            animation: mainContentSlide 1.5s ease-out 1.5s both;
+            position: relative;
+        }
+        
+        .content-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 30%, rgba(79, 70, 229, 0.005) 0%, transparent 60%),
+                radial-gradient(circle at 75% 70%, rgba(99, 102, 241, 0.005) 0%, transparent 60%);
+            animation: mainContentParticles 45s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Spectacular section styling */
+        .content-main section {
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(248, 249, 250, 0.7) 50%,
+                rgba(255, 255, 255, 0.85) 100%
+            ) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 25px !important;
+            border: 2px solid rgba(99, 102, 241, 0.08) !important;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.04),
+                0 6px 20px rgba(99, 102, 241, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+            padding: 35px !important;
+            margin-bottom: 30px !important;
+            animation: sectionSlideIn 1s ease-out both;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-main section:nth-child(1) { animation-delay: 1.8s; }
+        .content-main section:nth-child(2) { animation-delay: 2.0s; }
+        .content-main section:nth-child(3) { animation-delay: 2.2s; }
+        .content-main section:nth-child(4) { animation-delay: 2.4s; }
+        .content-main section:nth-child(5) { animation-delay: 2.6s; }
+        .content-main section:nth-child(6) { animation-delay: 2.8s; }
+        
+        .content-main section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.01) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.01) 0%, transparent 60%);
+            animation: sectionParticles 35s ease-in-out infinite;
+            pointer-events: none;
+            border-radius: 25px;
+        }
+        
+        .content-main section:hover {
+            transform: translateY(-5px) scale(1.005) !important;
+            box-shadow: 
+                0 25px 70px rgba(99, 102, 241, 0.08),
+                0 10px 30px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+            border-color: rgba(99, 102, 241, 0.15) !important;
+        }
+        
+        /* Premium section headers */
+        .content-main section h2 {
+            background: linear-gradient(135deg, #374151, #6366f1, #4f46e5) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            background-size: 200% 200% !important;
+            animation: sectionTitleGradient 8s ease-in-out infinite;
+            font-size: 1.8rem !important;
+            margin-bottom: 20px !important;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content-main section h3 {
+            background: linear-gradient(135deg, #4b5563, #6366f1) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            background-size: 200% 200% !important;
+            animation: sectionSubtitleGradient 6s ease-in-out infinite;
+            font-size: 1.4rem !important;
+            margin: 25px 0 15px 0 !important;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Premium text content */
+        .content-main section p {
+            position: relative;
+            z-index: 2;
+            color: #374151 !important;
+            line-height: 1.7 !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 20px !important;
+            animation: textFadeInUp 1s ease-out both;
+        }
+        
+        .content-main section ul {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content-main section ul li {
+            color: #4b5563 !important;
+            line-height: 1.6 !important;
+            margin-bottom: 8px !important;
+            animation: listItemSlide 1s ease-out both;
+            position: relative;
+            padding-left: 25px !important;
+        }
+        
+        .content-main section ul li::before {
+            content: '◉';
+            position: absolute;
+            left: 0;
+            color: #6366f1 !important;
+            font-weight: bold;
+            animation: bulletPulse 3s ease-in-out infinite;
+        }
+        
+        /* MASTERPIECE KEYFRAMES */
+        @keyframes sleepBackground {
+            0%, 100% { background-position: 0% 0%, 100% 100%, 50% 0%, 0% 0%; }
+            25% { background-position: 50% 50%, 50% 100%, 100% 50%, 25% 25%; }
+            50% { background-position: 100% 100%, 0% 50%, 50% 100%, 50% 50%; }
+            75% { background-position: 50% 50%, 50% 0%, 0% 50%, 75% 75%; }
+        }
+        
+        @keyframes headerGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes headerShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(300%) rotate(45deg); }
+        }
+        
+        @keyframes navItemSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes activeNavGlow {
+            0%, 100% { 
+                box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5), 0 0 20px rgba(79, 70, 229, 0.3);
+            }
+        }
+        
+        @keyframes sleepTitleGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 25% 25%; }
+            50% { background-position: 75% 75%; }
+            75% { background-position: 100% 25%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes titleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px) scale(0.8);
+                filter: blur(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes sleepIconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-8px) rotate(2deg) scale(1.02); }
+            50% { transform: translateY(4px) rotate(-2deg) scale(0.98); }
+            75% { transform: translateY(-3px) rotate(1deg) scale(1.01); }
+        }
+        
+        @keyframes sleepTitleUnderline {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes layoutSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+                filter: blur(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes articleParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+        }
+        
+        @keyframes tocSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) scale(0.9) rotateY(-10deg);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes tocParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(180deg); }
+        }
+        
+        @keyframes tocTitleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes tocItemSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px) scale(0.95);
+                filter: blur(3px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes mainContentSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(50px) scale(0.95) rotateY(8deg);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes mainContentParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(180deg); }
+        }
+        
+        @keyframes sectionSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes sectionParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(180deg); }
+        }
+        
+        @keyframes sectionTitleGradient {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 50% 0%; }
+            66% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes sectionSubtitleGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes textFadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes listItemSlide {
+            0% {
+                opacity: 0;
+                transform: translateX(-15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes bulletPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        /* Responsive masterpiece */
+        @media (max-width: 768px) {
+            .main-header-centered::before { display: none; }
+            .article-layout::before { display: none; }
+            .toc.card::before { display: none; }
+            .content-main::before { display: none; }
+            .content-main section::before { display: none; }
+            .toc ul li a::before { display: none; }
+            
+            .content-article header h1::after {
+                right: -40px;
+                font-size: 1.4rem;
+            }
+            
+            .toc.card {
+                position: static !important;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="brand-logo">
+                    <h2>Clario</h2>
+                </div>
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display"></span> | <a href="index.html" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown active">
+                        <a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+            <div class="content-article">
+                <header>
+                    <h1>Understanding Sleep Disorders</h1>
+                </header>
+
+                <div class="article-layout">
+                    <nav class="toc card">
+                        <h2>Table of Contents</h2>
+                        <ul>
+                            <li><a href="#intro">Introduction</a></li>
+                            <li><a href="#types">Common Types</a></li>
+                            <li><a href="#symptoms">Symptoms</a></li>
+                            <li><a href="#causes">Causes & Risk Factors</a></li>
+                            <li><a href="#diagnosis">Diagnosis</a></li>
+                            <li><a href="#treatment">Treatment</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="article-main-content">
+                        <section id="intro">
+                            <h2>Introduction</h2>
+                            <p>Sleep disorders are conditions that regularly disrupt your normal sleep patterns, affecting your overall health, safety, and quality of life. While it's normal to experience occasional sleeping problems, it's not normal to consistently feel tired during the day, struggle to fall asleep at night, or wake up feeling unrefreshed. Quality sleep is essential for mental health, physical health, and daily functioning. Understanding these disorders is the first step toward seeking effective treatment and reclaiming restful nights.</p>
+                        </section>
+
+                        <section id="types">
+                            <h2>Common Types of Sleep Disorders</h2>
+                            <p>There are many different types of sleep disorders. They are often grouped into categories that explain why they happen or how they affect you.</p>
+                            
+                            <h3>Insomnia</h3>
+                            <p>Insomnia is the inability to fall asleep or stay asleep at night, resulting in unrefreshing or non-restorative sleep. It's the most common sleep complaint and can be a short-term problem or a chronic, long-lasting issue. Insomnia can be caused by stress, jet lag, a health condition, the medications you take, or even the amount of coffee you drink.</p>
+                            
+                            <h3>Sleep Apnea</h3>
+                            <p>Sleep apnea is a serious sleep disorder in which breathing repeatedly stops and starts. If you snore loudly and feel tired even after a full night's sleep, you might have sleep apnea. The main types are obstructive sleep apnea (OSA), where throat muscles relax, and central sleep apnea, where your brain doesn't send proper signals to the muscles that control breathing.</p>
+
+                            <h3>Restless Legs Syndrome (RLS)</h3>
+                            <p>Restless Legs Syndrome is a condition characterized by an almost irresistible urge to move your legs, typically in the evenings. This sensation is often described as a crawling, creeping, or pulling feeling. It can make it difficult to fall asleep and stay asleep, leading to daytime fatigue.</p>
+
+                            <h3>Narcolepsy</h3>
+                            <p>Narcolepsy is a chronic neurological condition characterized by overwhelming daytime sleepiness and sudden attacks of sleep. People with narcolepsy often find it difficult to stay awake for long periods, regardless of the circumstances. This can cause serious disruptions in your daily routine.</p>
+                        </section>
+
+                        <section id="symptoms">
+                            <h2>General Symptoms</h2>
+                            <p>Symptoms can differ depending on the specific sleep disorder, but some general signs that you might have a sleep disorder include:</p>
+                            <ul>
+                                <li>Difficulty falling or staying asleep</li>
+                                <li>Excessive daytime sleepiness</li>
+                                <li>Loud snoring, choking, or gasping sounds during sleep</li>
+                                <li>Morning headaches and dry mouth</li>
+                                <li>Irregular breathing or movement during sleep</li>
+                                <li>Waking up frequently and feeling unrefreshed</li>
+                                <li>Lack of concentration, irritability, and mood swings</li>
+                                <li>An uncontrollable urge to move your legs, especially at night</li>
+                            </ul>
+                        </section>
+
+                        <section id="causes">
+                            <h2>Causes & Risk Factors</h2>
+                            <p>A wide range of factors can cause or contribute to sleep problems. These include:</p>
+                            <ul>
+                                <li><strong>Medical Conditions:</strong> Allergies, respiratory problems, chronic pain, and neurological disorders can interfere with sleep.</li>
+                                <li><strong>Mental Health:</strong> Anxiety, depression, and stress are strongly linked to sleep disorders. Anxious thoughts and worries can keep you awake at night, creating a vicious cycle.</li>
+                                <li><strong>Lifestyle:</strong> Irregular sleep schedules, consumption of alcohol or caffeine before bed, and lack of exercise can disrupt sleep patterns.</li>
+                                <li><strong>Aging:</strong> As you get older, your sleep patterns can change. Older adults tend to have a harder time falling asleep and wake up more frequently during the night.</li>
+                                <li><strong>Genetics:</strong> Some sleep disorders, like narcolepsy and certain forms of sleep apnea, can have a genetic component.</li>
+                            </ul>
+                        </section>
+
+                        <section id="diagnosis">
+                            <h2>Diagnosis</h2>
+                            <p>To diagnose a sleep disorder, a healthcare professional will typically take a detailed medical history and may ask you to keep a sleep diary. In some cases, a sleep study (polysomnography) may be necessary. This overnight study records your brain waves, heartbeat, breathing, and movements while you sleep. It is the most effective way to diagnose conditions like sleep apnea and narcolepsy. Your doctor will use this information to determine the specific type of sleep disorder and develop an appropriate treatment plan.</p>
+                        </section>
+
+                        <section id="treatment">
+                            <h2>Treatment</h2>
+                            <p>Treatment for sleep disorders depends on the specific condition but often involves a combination of medical treatments and lifestyle changes.</p>
+                            
+                            <h3>Medical Treatments</h3>
+                            <p>For conditions like sleep apnea, a continuous positive airway pressure (CPAP) machine is a common treatment. Medications, such as sleeping pills or melatonin supplements, may be used for short-term insomnia, but they are not typically a long-term solution. Other medications can help manage the symptoms of RLS or narcolepsy.</p>
+                            
+                            <h3>Behavioral and Cognitive Therapies</h3>
+                            <p>Cognitive Behavioral Therapy for Insomnia (CBT-I) is a highly effective, first-line treatment for chronic insomnia. It helps you identify and replace thoughts and behaviors that are causing or worsening your sleep problems. Relaxation techniques, such as meditation and deep breathing exercises, can also be beneficial.</p>
+
+                            <h3>Lifestyle Adjustments</h3>
+                            <p>Improving "sleep hygiene" is a crucial step. This includes maintaining a consistent sleep schedule (even on weekends), creating a restful environment that is dark, quiet, and cool, avoiding heavy meals and caffeine before bed, and getting regular physical activity.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Floating Reading Progress Indicator -->
+        <div class="reading-progress-indicator">
+            <div class="progress-circle">
+                <span id="progress-percentage">0%</span>
+            </div>
+            <div class="progress-text">Reading</div>
+        </div>
+    </div>
+    <script src="dashboard.script.js"></script>
+    <div id="toast-notification"></div>
+</body>
+</html>

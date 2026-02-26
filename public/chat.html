@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Clario | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="styleschat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="header-scroll.js" defer></script>
+    <script src="dashboard.script.js" defer></script>
+    <style>
+        /* MASTERPIECE CHAT INTERFACE ANIMATIONS */
+        
+        body {
+            overflow-x: hidden;
+            background: 
+                radial-gradient(circle at 20% 10%, rgba(3, 164, 94, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 80% 90%, rgba(114, 189, 70, 0.03) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(3, 164, 94, 0.01) 0%, rgba(114, 189, 70, 0.01) 100%);
+            animation: chatBackground 30s ease-in-out infinite;
+        }
+        
+        /* Spectacular header effects */
+        .main-header-centered {
+            position: relative;
+            background: linear-gradient(
+                135deg, 
+                var(--color-teal) 0%, 
+                var(--color-light-green) 50%,
+                var(--color-teal) 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            animation: headerGradientShift 8s ease-in-out infinite;
+            box-shadow: 
+                0 8px 32px rgba(3, 164, 94, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .main-header-centered::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: headerShine 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        /* Premium navigation */
+        .top-nav ul li {
+            animation: navItemSlide 1s ease-out both;
+        }
+        
+        .top-nav ul li:nth-child(1) { animation-delay: 0.1s; }
+        .top-nav ul li:nth-child(2) { animation-delay: 0.2s; }
+        .top-nav ul li:nth-child(3) { animation-delay: 0.3s; }
+        .top-nav ul li:nth-child(4) { animation-delay: 0.4s; }
+        .top-nav ul li:nth-child(5) { animation-delay: 0.5s; }
+        .top-nav ul li:nth-child(6) { animation-delay: 0.6s; }
+        .top-nav ul li:nth-child(7) { animation-delay: 0.7s; }
+        .top-nav ul li:nth-child(8) { animation-delay: 0.8s; }
+        
+        .top-nav ul li.active a {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3) !important;
+            transform: translateY(-2px) scale(1.05) !important;
+            animation: activeNavGlow 3s ease-in-out infinite;
+        }
+        
+        /* Spectacular page title */
+        .page-title {
+            background: linear-gradient(
+                135deg,
+                var(--color-teal) 0%,
+                var(--color-light-green) 50%,
+                var(--color-teal) 100%
+            ) !important;
+            background-size: 200% 200% !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: titleGradientShift 6s ease-in-out infinite, titleEntrance 1.5s ease-out;
+            text-shadow: 0 4px 20px rgba(3, 164, 94, 0.3) !important;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-light-green), var(--color-teal));
+            border-radius: 2px;
+            animation: titleUnderline 3s ease-in-out infinite;
+        }
+        
+        /* Premium chat container */
+        .chat-section {
+            background: linear-gradient(
+                145deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(248, 249, 250, 0.8) 100%
+            ) !important;
+            backdrop-filter: blur(20px) !important;
+            border-radius: 30px !important;
+            border: 2px solid rgba(3, 164, 94, 0.15) !important;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.08),
+                0 8px 25px rgba(3, 164, 94, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+            animation: chatContainerEntrance 1.5s ease-out 0.5s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chat-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(3, 164, 94, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(114, 189, 70, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            animation: chatParticles 25s ease-in-out infinite;
+        }
+        
+        /* Spectacular chat box */
+        .chat-box {
+            position: relative;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(248, 249, 250, 0.2) 100%
+            ) !important;
+            border-radius: 20px !important;
+            border: 1px solid rgba(3, 164, 94, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            animation: chatBoxSlideIn 1.5s ease-out 0.8s both;
+            box-shadow: inset 0 2px 10px rgba(3, 164, 94, 0.05) !important;
+        }
+        
+        .chat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(3, 164, 94, 0.01) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(114, 189, 70, 0.01) 0%, transparent 50%);
+            pointer-events: none;
+            animation: chatBoxParticles 20s ease-in-out infinite;
+            border-radius: 20px;
+        }
+        
+        /* Premium message bubbles */
+        .user-message {
+            background: linear-gradient(
+                135deg,
+                var(--color-teal) 0%,
+                var(--color-light-green) 100%
+            ) !important;
+            box-shadow: 
+                0 8px 25px rgba(3, 164, 94, 0.3),
+                0 3px 10px rgba(0, 0, 0, 0.1) !important;
+            animation: userMessageSlideIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .user-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            animation: messageShimmer 3s ease-in-out infinite;
+        }
+        
+        .ai-message {
+            background: linear-gradient(
+                135deg,
+                rgba(240, 240, 240, 0.95) 0%,
+                rgba(248, 249, 250, 0.8) 100%
+            ) !important;
+            border: 1px solid rgba(3, 164, 94, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.05),
+                0 2px 8px rgba(3, 164, 94, 0.1) !important;
+            animation: aiMessageSlideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(3, 164, 94, 0.05),
+                transparent
+            );
+            animation: aiMessageShimmer 4s ease-in-out infinite;
+        }
+        
+        /* Typing indicator */
+        .typing-indicator {
+            background: linear-gradient(
+                135deg,
+                rgba(240, 240, 240, 0.95) 0%,
+                rgba(248, 249, 250, 0.8) 100%
+            ) !important;
+            border: 1px solid rgba(3, 164, 94, 0.15) !important;
+            backdrop-filter: blur(10px) !important;
+            animation: typingSlideIn 0.5s ease-out;
+            padding: 20px !important;
+            border-radius: 20px !important;
+            margin: 15px 0 !important;
+            max-width: 80% !important;
+            margin-right: auto !important;
+            margin-left: 0 !important;
+            border-bottom-left-radius: 5px !important;
+            border-bottom-right-radius: 20px !important;
+        }
+        
+        .typing-dots {
+            display: inline-flex;
+            gap: 4px;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--color-teal), var(--color-light-green));
+            border-radius: 50%;
+            animation: typingDot 1.4s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        /* Premium chat form */
+        .chat-form {
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(248, 249, 250, 0.6) 100%
+            ) !important;
+            backdrop-filter: blur(15px) !important;
+            border-radius: 25px !important;
+            border: 2px solid rgba(3, 164, 94, 0.1) !important;
+            padding: 8px !important;
+            animation: formSlideUp 1.5s ease-out 1.2s both;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chat-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                transparent 40%,
+                rgba(3, 164, 94, 0.03) 50%,
+                transparent 60%
+            );
+            animation: formShine 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        .chat-form input {
+            background: transparent !important;
+            border: none !important;
+            color: #333 !important;
+            font-size: 16px !important;
+            transition: all 0.3s ease !important;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .chat-form input:focus {
+            outline: none !important;
+            transform: scale(1.02) !important;
+            text-shadow: 0 1px 3px rgba(3, 164, 94, 0.2) !important;
+        }
+        
+        .chat-form input::placeholder {
+            background: linear-gradient(135deg, #A8A8A8, #999) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+        
+        .chat-form button {
+            background: linear-gradient(
+                135deg,
+                var(--color-teal) 0%,
+                var(--color-light-green) 100%
+            ) !important;
+            border: none !important;
+            border-radius: 20px !important;
+            box-shadow: 
+                0 6px 20px rgba(3, 164, 94, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .chat-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: left 0.6s ease;
+        }
+        
+        .chat-form button:hover {
+            transform: translateY(-3px) scale(1.1) !important;
+            box-shadow: 
+                0 10px 30px rgba(3, 164, 94, 0.4),
+                0 4px 15px rgba(0, 0, 0, 0.15) !important;
+            animation: buttonPulse 2s ease-in-out infinite;
+        }
+        
+        .chat-form button:hover::before {
+            left: 100%;
+        }
+        
+        .chat-form button:active {
+            transform: translateY(-1px) scale(1.05) !important;
+            animation: buttonClick 0.2s ease-out;
+        }
+        
+        .chat-form button i {
+            color: white !important;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .chat-form button:hover i {
+            transform: translateX(2px) rotate(15deg) !important;
+        }
+        
+        /* MASTERPIECE KEYFRAMES */
+        @keyframes chatBackground {
+            0%, 100% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+            25% { background-position: 100% 0%, 0% 100%, 25% 25%; }
+            50% { background-position: 100% 100%, 0% 0%, 50% 50%; }
+            75% { background-position: 0% 100%, 100% 0%, 75% 75%; }
+        }
+        
+        @keyframes headerGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes headerShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(300%) rotate(45deg); }
+        }
+        
+        @keyframes navItemSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes activeNavGlow {
+            0%, 100% { 
+                box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 0 6px 25px rgba(255, 255, 255, 0.5), 0 0 20px rgba(3, 164, 94, 0.3);
+            }
+        }
+        
+        @keyframes titleGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes titleEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.9);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes titleUnderline {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.1); }
+        }
+        
+        @keyframes chatContainerEntrance {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+                filter: blur(15px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes chatParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(120deg); }
+            66% { transform: translateY(5px) rotate(240deg); }
+        }
+        
+        @keyframes chatBoxSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes chatBoxParticles {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(180deg); }
+        }
+        
+        @keyframes userMessageSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(50px) scale(0.8) rotateY(-15deg);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes aiMessageSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) scale(0.8) rotateY(15deg);
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1) rotateY(0deg);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes messageShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes aiMessageShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes typingSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px) scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes typingDot {
+            0%, 80%, 100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            40% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+        
+        @keyframes formSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+        
+        @keyframes formShine {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes buttonPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 10px 30px rgba(3, 164, 94, 0.4),
+                    0 4px 15px rgba(0, 0, 0, 0.15);
+            }
+            50% { 
+                box-shadow: 
+                    0 15px 40px rgba(3, 164, 94, 0.5),
+                    0 6px 20px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
+        @keyframes buttonClick {
+            0% { transform: translateY(-3px) scale(1.1); }
+            50% { transform: translateY(-1px) scale(1.05); }
+            100% { transform: translateY(-3px) scale(1.1); }
+        }
+        
+        /* Responsive masterpiece */
+        @media (max-width: 768px) {
+            .main-header-centered::before { display: none; }
+            .chat-section::before { display: none; }
+            .chat-box::before { display: none; }
+            .chat-form::before { display: none; }
+            .user-message::before { display: none; }
+            .ai-message::before { display: none; }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="user-info-right">
+                    <span data-translate="Logged in as:">Logged in as:</span> <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> <span data-translate="Logout">Logout</span></a>
+                </div>
+            </div>
+            <div class="brand-logo main-logo">
+                <img src="images/clario.png" alt="Clario Brain Logo " class="logo-img">
+            </div> 
+            <nav class="top-nav">
+                <ul>
+                    <li class="nav-logo">
+                        <img src="images/clario.png" alt="Clario Brain Logo" class="logo-img-small">
+                    </li>
+                    
+                    <li><a href="dashboard.html" title="Dashboard" data-translate-title="Dashboard"><i class="fas fa-home"></i></a></li>
+
+                    <li class="dropdown">
+                        <a href="condition-az.html" data-translate="Condition A-Z">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html" data-translate="Anxiety">Anxiety</a></li>
+                            <li><a href="depression.html" data-translate="Depression">Depression</a></li>
+                            <li><a href="sleep-disorder.html" data-translate="Sleep Disorder">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html" data-translate="View More">View More</a></li>
+                            <li><a href="face-analysis.html"><i class="fas fa-user-astronaut"></i> <span data-translate="Face Analysis">Face Analysis</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html" data-translate="Journal">Journal</a></li>
+                    <li><a href="practice.html" data-translate="Wellness Practice">Wellness Practice</a></li>
+                    <li><a href="question.html" data-translate="Daily Question">Daily Question</a></li>
+                    <li><a href="quiz.html" data-translate="Quiz">Quiz</a></li>
+                    <li class="active"><a href="chat.html" data-translate="Chat with AI">Chat with AI</a></li>
+                    <li class="search-container">
+                        <div class="search-toggle" id="searchToggle">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                        <div class="search-box" id="searchBox">
+                            <input type="text" id="searchInput" placeholder="Search wellness topics..." data-translate-placeholder="Search wellness topics..." autocomplete="off">
+                            <div class="search-results" id="searchResults"></div>
+                            <button class="search-close" id="searchClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </li>
+                    <li class="language-container">
+                        <div class="language-toggle" id="languageToggle">
+                            <i class="fas fa-globe language-icon"></i>
+                            <span class="current-lang" id="currentLang" data-translate="EN">EN</span>
+                        </div>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" data-lang="en">
+                                <div class="flag-icon flag-en">🇺🇸</div>
+                                <span data-translate="English">English</span>
+                                <small data-translate="Default">Default</small>
+                            </div>
+                            <div class="language-option" data-lang="hi">
+                                <div class="flag-icon flag-hi">🇮🇳</div>
+                                <span>हिंदी</span>
+                                <small data-translate="Hindi">Hindi</small>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content-no-sidebar">
+           <header>
+                 <h1 class="page-title" data-translate="Chat with Clario">Chat with Clario</h1>
+           </header>
+            <section id="chat-section" class="chat-section">
+                <div class="chat-container">
+                    <div id="chat-box" class="chat-box">
+                        </div>
+                    <form id="chat-form" class="chat-form">
+                        <input type="text" id="chat-input" placeholder="Type your message..." data-translate-placeholder="Type your message..." autocomplete="off">
+                        <button type="submit" title="Send Message" data-translate-title="Send Message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- About Section - Footer Style -->
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-brand">
+                        <div class="about-logo">
+                            <img src="images/clario.png" alt="Clario" class="about-logo-img">
+                            <h2 data-translate="Clario">Clario</h2>
+                        </div>
+                        <div class="certification-badge">
+                            <div class="badge-circle">
+                                <span class="badge-letter">C</span>
+                            </div>
+                            <div class="badge-text">
+                                <p data-translate="Certified">Certified</p>
+                                <small data-translate="Platform certification">This platform meets high standards of mental health and wellness support.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-columns">
+                        <div class="about-column">
+                            <h3 data-translate="Services">Services</h3>
+                            <ul>
+                                <li><a href="anxiety.html"><i class="fas fa-leaf"></i> <span data-translate="Anxiety Support">Anxiety Support</span></a></li>
+                                <li><a href="depression.html"><i class="fas fa-leaf"></i> <span data-translate="Depression Care">Depression Care</span></a></li>
+                                <li><a href="sleeptracker.html"><i class="fas fa-leaf"></i> <span data-translate="Sleep Wellness">Sleep Wellness</span></a></li>
+                                <li><a href="practice.html"><i class="fas fa-leaf"></i> <span data-translate="Mindfulness Practice">Mindfulness Practice</span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Resources">Resources</h3>
+                            <ul>
+                                <li><a href="condition-az.html" data-translate="Mental Health A-Z">Mental Health A-Z</a></li>
+                                <li><a href="panic.html" data-translate="Crisis Support">Crisis Support</a></li>
+                                <li><a href="ocd.html" data-translate="OCD Resources">OCD Resources</a></li>
+                                <li><a href="gaslighting.html" data-translate="Relationship Support">Relationship Support</a></li>
+                                <li><a href="face-analysis.html" data-translate="Emotion Analysis">Emotion Analysis</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Tools">Tools</h3>
+                            <ul>
+                                <li><a href="journal.html" data-translate="Daily Journal">Daily Journal</a></li>
+                                <li><a href="question.html" data-translate="Check-in Questions">Check-in Questions</a></li>
+                                <li><a href="quiz.html" data-translate="Wellness Assessments">Wellness Assessments</a></li>
+                                <li><a href="chat.html" data-translate="AI Chat Support">AI Chat Support</a></li>
+                                <li><a href="attachment.html" data-translate="Attachment Insights">Attachment Insights</a></li>
+                                <li><a href="emotion.html" data-translate="Emotion Tracking">Emotion Tracking</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="about-column">
+                            <h3 data-translate="Quick Links">Quick Links</h3>
+                            <ul>
+                                <li><a href="dashboard.html" data-translate="About Us">About Us</a></li>
+                                <li><a href="#case-study" data-translate="Success Stories">Success Stories</a></li>
+                                <li><a href="#knowledge" data-translate="Wellness Library">Wellness Library</a></li>
+                                <li><a href="#careers" data-translate="Join Our Team">Join Our Team</a></li>
+                                <li><a href="#partner" data-translate="Become a Partner">Become a Partner</a></li>
+                                <li><a href="#connect" data-translate="Connect With Us">Connect With Us</a></li>
+                                <li><a href="#news" data-translate="Latest Updates">Latest Updates</a></li>
+                                <li><a href="#legal" data-translate="Privacy & Terms">Privacy & Terms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Large Background Text -->
+                <div class="about-background-text" data-translate="Clario">Clario</div>
+
+                <!-- Footer Bottom -->
+                <div class="about-footer">
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p class="copyright" data-translate="Copyright">© 2025 Clario Mental Wellness Solutions Private Limited</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <script src="chat.js" defer></script>
+    <script src="universal-language-system.js"></script>
+    <div id="toast-notification"></div>
+</body>
+</html>

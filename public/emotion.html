@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Quiz | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="emotion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row"><div class="brand-logo"><h2>Clario</h2></div><div class="user-info-right">Logged in as: <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a></div></div>
+            <nav class="top-nav"><ul><li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li><li class="dropdown"><a href="condition-az.html">Condition A-Z</a><ul class="dropdown-menu"><li><a href="anxiety.html">Anxiety</a></li><li><a href="depression.html">Depression</a></li><li><a href="sleep-disorder.html">Sleep Disorder</a></li><li><a href="condition-az.html">View More</a></li></ul></li><li><a href="journal.html">Journal</a></li><li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li><li><a href="question.html">Daily Question</a></li><li class="active"><a href="quiz.html">Quiz</a></li><li><a href="chat.html">Chat with AI</a></li></ul></nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+            <header><h1>Emotion Quiz</h1></header>
+
+            <section class="quiz-layout">
+                <aside class="card quiz-list-card">
+                    <h2 class="quiz-list-title">TAKE A QUIZ</h2>
+                    <ul>
+                        <li><a href="emotion.html"><div class="quiz-list-text"><h3>What Emotion Are You?</h3></div><div class="quiz-list-icon"><i class="fas fa-smile"></i></div></a></li>
+                        <li><a href="attachment.html"><div class="quiz-list-text"><h3>What's Your Attachment Style?</h3></div><div class="quiz-list-icon"><i class="fas fa-lock"></i></div></a></li>
+                        <li><a href="gaslighting.html"><div class="quiz-list-text"><h3>Are You Being Gaslighted?</h3></div><div class="quiz-list-icon"><i class="fas fa-bolt"></i></div></a></li>
+                    </ul>
+                </aside>
+
+                <div class="quiz-main-content">
+                    <div class="card quiz-container" id="quiz-content">
+                        <form id="emotion-quiz-form">
+                            <div class="quiz-question-wrapper"><div class="quiz-question"><p>1. When you're faced with a difficult task, you handle it by:</p><div class="quiz-option"><label><input type="radio" name="q1" value="Crying and feeling sorry for myself." required>Crying and feeling sorry for myself.</label></div><div class="quiz-option"><label><input type="radio" name="q1" value="Lashing out at others due to frustration.">Lashing out at others.</label></div><div class="quiz-option"><label><input type="radio" name="q1" value="Avoiding everything and everyone.">Avoiding everything.</label></div><div class="quiz-option"><label><input type="radio" name="q1" value="Trying to make it into a fun activity.">Trying to make it fun.</label></div></div><button type="button" class="next-question-btn card-button">Next</button></div>
+                            <div class="quiz-question-wrapper"><div class="quiz-question"><p>2. What describes spending time alone?</p><div class="quiz-option"><label><input type="radio" name="q2" value="I'm frustrated when people aren't available." required>Frustration that others aren't available.</label></div><div class="quiz-option"><label><input type="radio" name="q2" value="I'm hurt because it feels like I have nobody.">Hurt that I have nobody.</label></div><div class="quiz-option"><label><input type="radio" name="q2" value="I enjoy time to reflect and get to know myself.">Enjoying the time to reflect.</label></div><div class="quiz-option"><label><input type="radio" name="q2" value="I worry people don't like me.">Worrying that people don't like me.</label></div></div><button type="button" class="next-question-btn card-button">Next</button></div>
+                            <div class="quiz-question-wrapper"><div class="quiz-question"><p>3. What color matches how you feel?</p><div class="quiz-option"><label><input type="radio" name="q3" value="Yellow" required>Yellow</label></div><div class="quiz-option"><label><input type="radio" name="q3" value="Black">Black</label></div><div class="quiz-option"><label><input type="radio" name="q3" value="Red">Red</label></div><div class="quiz-option"><label><input type="radio" name="q3" value="Blue">Blue</label></div></div><button type="button" class="next-question-btn card-button">Next</button></div>
+                            <div class="quiz-question-wrapper"><div class="quiz-question"><p>4. How often do you feel happy?</p><div class="quiz-option"><label><input type="radio" name="q4" value="Sometimes, but worried it won't last." required>Sometimes, but it might not last.</label></div><div class="quiz-option"><label><input type="radio" name="q4" value="Rarely, not much to be happy about.">Rarely.</label></div><div class="quiz-option"><label><input type="radio" name="q4" value="Frequently!">Frequently!</label></div><div class="quiz-option"><label><input type="radio" name="q4" value="Never. It's hard for me to feel happy.">Never.</label></div></div><button type="button" class="next-question-btn card-button">Next</button></div>
+                            <div class="quiz-question-wrapper"><div class="quiz-question"><p>5. When you're feeling down, you:</p><div class="quiz-option"><label><input type="radio" name="q5" value="Cry and feel sorry for myself." required>Cry and feel sorry for myself.</label></div><div class="quiz-option"><label><input type="radio" name="q5" value="Yell at anyone who looks at me wrong.">Yell at others.</label></div><div class="quiz-option"><label><input type="radio" name="q5" value="Avoid people until I feel better.">Avoid people.</label></div><div class="quiz-option"><label><input type="radio" name="q5" value="Try to lift my mood by doing something I enjoy.">Do something I enjoy.</label></div></div><button type="submit" class="final-submit-btn card-button">Submit Answers</button></div>
+                        </form>
+                    </div>
+                    
+                    <div class="card quiz-results" style="display:none;">
+                        <h2 id="result-title"></h2>
+                        <div id="result-content"></div>
+                        <button class="card-button" onclick="window.location.href='dashboard.html'">Go to Dashboard</button>
+                    </div>
+
+                    <div class="card" style="margin-top: 30px;">
+                        <div class="card-header"><i class="fas fa-history"></i><h3>Your Past Quiz Results</h3></div>
+                        <div id="past-results-container"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <div id="toast-notification"></div>
+    <script src="emotion.js"></script>
+</body>
+</html>

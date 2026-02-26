@@ -1,0 +1,44 @@
+/* Image Hover Zoom Effects */
+img {
+    transition: transform 0.3s ease !important;
+    cursor: pointer;
+}
+
+img:hover {
+    transform: scale(1.1) !important;
+}
+
+/* Centered journal image styling */
+.journal-center-image {
+    display: block;
+    margin: 32px auto 24px auto;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(58, 175, 169, 0.12);
+}
+.journal-intro {
+    max-width: 800px;
+    margin: 2rem auto 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.journal-intro p {
+    color: #333333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.journal-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.journal-intro .highlight {
+    color: #a78bfa;
+    font-weight: 500;
+}

@@ -1,0 +1,221 @@
+/* Image Hover Zoom Effects */
+img {
+    transition: transform 0.3s ease !important;
+    cursor: pointer;
+}
+
+img:hover {
+    transform: scale(1.1) !important;
+}
+
+/* --- Quiz Page Specific Styles --- */
+.quiz-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;  /* Left sidebar is fixed, right content is flexible */
+    gap: 40px; /* Space between the sidebar and main content */
+    width: 100%;
+    margin: 0;
+    position: relative;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.quiz-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the info box to be part of the image container */
+.info-box {
+    background-color: white;
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    border-radius: 12px;
+}flexible {
+    gap: 40px; 
+    align-items: start;
+    max-width: 1100px; 
+    margin: 0 auto;
+}
+
+.quiz-list-card {
+    width: 200%;
+    max-width: 300px; 
+    padding: 16px; 
+    background-color: #fff;
+    border-radius: 14px; 
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07); 
+    position: sticky;
+    top: 30px;
+    height: fit-content;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Style for the Take a Quiz section */
+.quiz-list-header {
+    position: sticky;
+    top: 30px;
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 14px;
+    z-index: 1;
+    margin-bottom: 8px;
+}
+
+.quiz-list-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+.quiz-list-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.quiz-list-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quiz-list-card li {
+    margin-bottom: 0;
+}
+
+.quiz-list-card li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0; 
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+    font-size: 0.96em;
+}
+
+.quiz-list-card li:first-child a {
+    padding-top: 0;
+}
+
+.quiz-list-card li:last-child a {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.quiz-list-card li a:hover {
+    background-color: #f8f9fa;
+}
+
+.quiz-list-text {
+    flex-grow: 1;
+    padding-right: 10px; 
+}
+
+.quiz-list-text h3 {
+    margin: 0;
+    font-size: 1em; 
+    font-weight: 600;
+}
+
+.quiz-list-icon {
+    font-size: 1.4em;
+    color: #2E4C4C;
+}
+
+.quiz-list-card li:nth-child(2) .quiz-list-text h3 {
+    color: #e53e3e;
+}
+
+.quiz-list-card li:nth-child(2) .quiz-list-icon {
+    color: #e53e3e;
+}
+
+.quiz-list-card li:nth-child(3) .quiz-list-icon {
+    /* font-size: 1.1em; */
+    color: #e53e3e;
+}
+
+.quiz-main-content {
+    width: 100%;
+}
+.quiz-intro-box {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 0px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.08);
+}
+
+.quiz-intro-box p {
+    font-size: 1.5em;
+    line-height: 1.6;
+    color: #4a5568;
+}
+/* --- Info Box Style --- */
+
+.info-box {
+    background-color: #ffffff;
+    border-left: 5px solid #23d5ab;
+    padding: 25px 30px;                 
+    margin: 0;                     
+    border-radius: 12px;                
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); 
+}
+
+/* Responsive styles for the quiz page */
+@media (max-width: 1024px) {
+    .quiz-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 97vw;
+    }
+    .quiz-list-card {
+        position: static;
+        max-width: 100%;
+        margin-bottom: 18px;
+    }
+
+}
+/* --- Quiz Page Layout and Image Styles --- */
+
+.quiz-page-layout {
+    display: flex;
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 40px; /* Space between the image and the quiz content */
+}
+
+.quiz-image-container {
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+
+.quiz-image-container img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.image-caption {
+    margin-top: 15px;
+    font-style: italic;
+    color: #666;
+    font-size: 0.95em;
+}
+
+/* Make sure the main quiz layout takes up the rest of the space */
+.quiz-layout {
+    flex-grow: 1;
+}

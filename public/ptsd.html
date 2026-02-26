@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTSD | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="ptsd-optimized.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="brand-logo">
+                    <h2>Clario</h2>
+                </div>
+                <div class="user-info-right">
+                    Logged in as: <span id="username-display"></span> | <a href="index.html" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown active">
+                        <a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+            <div class="content-article">
+                <header>
+                    <h1>Understanding PTSD</h1>
+                </header>
+
+                <div class="article-layout">
+                    <nav class="toc card">
+                        <h2>Table of Contents</h2>
+                        <ul>
+                            <li><a href="#intro">Introduction</a></li>
+                            <li><a href="#types">Types of Trauma</a></li>
+                            <li><a href="#symptoms">Symptoms</a></li>
+                            <li><a href="#causes">Causes & Risk Factors</a></li>
+                            <li><a href="#diagnosis">Diagnosis</a></li>
+                            <li><a href="#treatment">Treatment</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="content-main">
+                        <section id="intro">
+                            <h2>Introduction</h2>
+                            <p>Post-Traumatic Stress Disorder (PTSD) is a mental health condition that can develop after experiencing or witnessing a traumatic event. Unlike normal stress responses that fade over time, PTSD symptoms persist and can significantly impact daily functioning, relationships, and quality of life. PTSD affects people of all ages and backgrounds, and it's important to understand that developing PTSD after trauma is not a sign of weakness—it's a normal response to abnormal circumstances.</p>
+                            <p>PTSD was first formally recognized in veterans returning from war, but we now know it can result from many types of traumatic experiences including accidents, natural disasters, violent crimes, childhood abuse, or medical emergencies. With proper treatment and support, recovery from PTSD is possible, and many people go on to live fulfilling lives.</p>
+                        </section>
+
+                        <section id="types">
+                            <h2>Types of Trauma</h2>
+                            <p>Trauma can take many forms, and PTSD can develop from various traumatic experiences:</p>
+                            
+                            <h3>Combat and Military Trauma</h3>
+                            <p>Military personnel may develop PTSD from combat exposure, military sexual trauma, training accidents, or witnessing casualties. Combat PTSD has been extensively studied and was instrumental in understanding the condition.</p>
+                            
+                            <h3>Physical or Sexual Violence</h3>
+                            <p>Assault, domestic violence, sexual abuse, or rape can lead to PTSD. These interpersonal traumas often involve feelings of powerlessness and betrayal that can be particularly challenging to process.</p>
+                            
+                            <h3>Accidents and Disasters</h3>
+                            <p>Car accidents, workplace incidents, natural disasters, or terrorist attacks can trigger PTSD. The sudden, unexpected nature of these events can leave lasting psychological impacts.</p>
+                            
+                            <h3>Childhood Trauma</h3>
+                            <p>Childhood abuse, neglect, or witnessing violence can lead to complex PTSD, which may involve additional symptoms related to emotional regulation and self-concept.</p>
+                            
+                            <h3>Medical Trauma</h3>
+                            <p>Life-threatening illness, intensive medical procedures, or medical emergencies can sometimes result in PTSD, particularly when patients feel helpless or fear for their lives.</p>
+                        </section>
+
+                        <section id="symptoms">
+                            <h2>Symptoms</h2>
+                            <p>PTSD symptoms are grouped into four main clusters that must persist for more than one month:</p>
+                            
+                            <h3>Re-experiencing (Intrusion) Symptoms</h3>
+                            <ul>
+                                <li>Recurrent, distressing memories of the trauma</li>
+                                <li>Vivid, disturbing dreams or nightmares</li>
+                                <li>Flashbacks where the person feels like they're reliving the event</li>
+                                <li>Intense distress when exposed to trauma reminders</li>
+                                <li>Physical reactions (sweating, nausea, heart racing) to trauma cues</li>
+                            </ul>
+                            
+                            <h3>Avoidance Symptoms</h3>
+                            <ul>
+                                <li>Avoiding trauma-related thoughts, feelings, or conversations</li>
+                                <li>Avoiding places, people, or activities that remind of the trauma</li>
+                                <li>Inability to remember important aspects of the trauma</li>
+                                <li>Emotional numbing or detachment from others</li>
+                            </ul>
+                            
+                            <h3>Negative Changes in Mood and Thinking</h3>
+                            <ul>
+                                <li>Persistent negative thoughts about oneself or the world</li>
+                                <li>Distorted blame of self or others for the trauma</li>
+                                <li>Persistent negative emotions (fear, horror, anger, guilt, shame)</li>
+                                <li>Loss of interest in previously enjoyed activities</li>
+                                <li>Feelings of detachment from others</li>
+                                <li>Inability to experience positive emotions</li>
+                            </ul>
+                            
+                            <h3>Hyperarousal and Reactivity Symptoms</h3>
+                            <ul>
+                                <li>Exaggerated startle response</li>
+                                <li>Hypervigilance (constantly scanning for danger)</li>
+                                <li>Irritability or outbursts of anger</li>
+                                <li>Reckless or self-destructive behavior</li>
+                                <li>Difficulty concentrating</li>
+                                <li>Sleep disturbances</li>
+                            </ul>
+                        </section>
+
+                        <section id="causes">
+                            <h2>Causes & Risk Factors</h2>
+                            <p>Not everyone who experiences trauma develops PTSD. Several factors influence risk:</p>
+                            
+                            <h3>Trauma Characteristics</h3>
+                            <p>More severe, prolonged, or repeated trauma increases PTSD risk. Interpersonal violence and human-caused trauma tend to have higher rates than natural disasters or accidents.</p>
+                            
+                            <h3>Individual Risk Factors</h3>
+                            <ul>
+                                <li>Previous trauma exposure or mental health issues</li>
+                                <li>Family history of mental health problems</li>
+                                <li>Lack of social support</li>
+                                <li>Ongoing life stressors</li>
+                                <li>Substance abuse</li>
+                                <li>Younger age at time of trauma</li>
+                            </ul>
+                            
+                            <h3>Protective Factors</h3>
+                            <ul>
+                                <li>Strong social support network</li>
+                                <li>Effective coping skills</li>
+                                <li>Resilient personality traits</li>
+                                <li>Spiritual or religious beliefs</li>
+                                <li>Previous positive experiences managing stress</li>
+                            </ul>
+                            
+                            <h3>Neurobiological Factors</h3>
+                            <p>PTSD involves changes in brain regions responsible for memory, emotion, and stress response, including the amygdala, hippocampus, and prefrontal cortex. Genetic factors may also influence susceptibility.</p>
+                        </section>
+
+                        <section id="diagnosis">
+                            <h2>Diagnosis</h2>
+                            <p>PTSD diagnosis requires comprehensive clinical evaluation:</p>
+                            
+                            <h3>Clinical Interview</h3>
+                            <p>Mental health professionals conduct detailed interviews about trauma history, symptoms, and functional impairment. The Clinician-Administered PTSD Scale (CAPS-5) is considered the gold standard assessment tool.</p>
+                            
+                            <h3>Diagnostic Criteria</h3>
+                            <p>The DSM-5 criteria require exposure to actual or threatened death, serious injury, or sexual violence, plus symptoms from all four symptom clusters lasting more than one month and causing significant distress or impairment.</p>
+                            
+                            <h3>Differential Diagnosis</h3>
+                            <p>Clinicians must rule out other conditions that may present similarly, such as acute stress disorder, depression, anxiety disorders, or substance-related disorders.</p>
+                            
+                            <h3>Comorbid Conditions</h3>
+                            <p>PTSD commonly co-occurs with depression, anxiety disorders, substance use disorders, and sleep disorders, all of which should be assessed and addressed in treatment planning.</p>
+                        </section>
+
+                        <section id="treatment">
+                            <h2>Treatment</h2>
+                            <p>Effective PTSD treatments are available, and early intervention improves outcomes:</p>
+                            
+                            <h3>Trauma-Focused Psychotherapy</h3>
+                            <p>Evidence-based therapies include Cognitive Processing Therapy (CPT), Prolonged Exposure (PE), and Eye Movement Desensitization and Reprocessing (EMDR). These therapies help process trauma memories and reduce symptoms.</p>
+                            
+                            <h3>Medications</h3>
+                            <p>FDA-approved medications for PTSD include selective serotonin reuptake inhibitors (SSRIs) like sertraline and paroxetine. Other medications may be used for specific symptoms like sleep problems or nightmares.</p>
+                            
+                            <h3>Complementary Approaches</h3>
+                            <p>Mindfulness, yoga, meditation, art therapy, and body-based therapies can be helpful adjuncts to traditional treatment, particularly for managing hyperarousal symptoms and building coping skills.</p>
+                            
+                            <h3>Support Systems</h3>
+                            <p>Family therapy, support groups, and peer support programs help rebuild social connections and provide ongoing encouragement during recovery. Online resources and apps can supplement professional treatment.</p>
+                            
+                            <h3>Crisis Planning</h3>
+                            <p>Developing safety plans and crisis intervention strategies is important, particularly for individuals with suicidal thoughts or self-harm behaviors, which can be associated with PTSD.</p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.script.js"></script>
+    <div id="toast-notification"></div>
+</body>
+</html>

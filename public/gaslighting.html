@@ -1,0 +1,194 @@
+<!D    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaslighting Quiz | My Wellness</title>
+    <link rel="stylesheet" href="dashboard.style.css">
+    <link rel="stylesheet" href="gaslighting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">E html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaslighting Assessment Quiz</title>
+    <link rel="stylesheet" href="gaslighting.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-wrapper-no-sidebar">
+        <header class="main-header-centered">
+            <div class="header-top-row">
+                <div class="brand-logo"><h2>Clario</h2></div>
+                <div class="user-info-right">Logged in as: <span id="username-display"></span> | <a href="#" id="logout-btn" class="logout-btn-inline"><i class="fas fa-sign-out-alt"></i> Logout</a></div>
+            </div>
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="dashboard.html" title="Dashboard"><i class="fas fa-home"></i></a></li>
+                    <li class="dropdown">
+                        <a href="condition-az.html">Condition A-Z</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="anxiety.html">Anxiety</a></li>
+                            <li><a href="depression.html">Depression</a></li>
+                            <li><a href="sleep-disorder.html">Sleep Disorder</a></li>
+                            <li><a href="condition-az.html">View More</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="journal.html">Journal</a></li>
+                    <li class="nav-item-spacer"><a href="practice.html">Wellness Practice</a></li>
+                    <li><a href="question.html">Daily Question</a></li>
+                    <li class="active"><a href="quiz.html">Quiz</a></li>
+                    <li><a href="chat.html">Chat with AI</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content-no-sidebar">
+            <header><h1>Gaslighting Assessment Quiz</h1></header>
+
+            <section class="quiz-layout">
+                <aside class="card quiz-list-card">
+                    <h2 class="quiz-list-title">TAKE A QUIZ</h2>
+                    <ul>
+                        <li><a href="emotion.html">
+                            <div class="quiz-list-text"><h3>What Emotion Are You?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-smile"></i></div>
+                        </a></li>
+                        <li><a href="attachment.html">
+                            <div class="quiz-list-text"><h3>What's Your Attachment Style?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-lock"></i></div>
+                        </a></li>
+                        <li><a href="gaslighting.html">
+                            <div class="quiz-list-text"><h3>Are You Being Gaslighted?</h3></div>
+                            <div class="quiz-list-icon"><i class="fas fa-bolt"></i></div>
+                        </a></li>
+                    </ul>
+                </aside>
+
+                <div class="quiz-main-content">
+                    <div class="card quiz-container">
+                        <div id="quiz-progress">
+                            Question <span id="current-question">1</span> of <span id="total-questions">4</span>
+                        </div>
+                        <form id="gaslighting-quiz-form">
+                            <div class="quiz-questions">
+                                <div class="quiz-question" data-question="1">
+                                    <p>Do you doubt how you feel and/or question what happened or didn't happen during interactions with this person?</p>
+                                    <div class="quiz-options">
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q1" value="1" required>
+                                                <span>Rarely or never</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q1" value="2">
+                                                <span>Sometimes</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q1" value="3">
+                                                <span>Frequently</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quiz-question" data-question="2" style="display: none;">
+                                    <p>Has the person spread rumors about you or tried to convince others to question your character?</p>
+                                    <div class="quiz-options">
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q2" value="1" required>
+                                                <span>Rarely or never</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q2" value="2">
+                                                <span>Sometimes</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q2" value="3">
+                                                <span>Frequently</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quiz-question" data-question="3" style="display: none;">
+                                    <p>How often do they say things like "calm down," "you're overreacting," or "that never happened."</p>
+                                    <div class="quiz-options">
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q3" value="1" required>
+                                                <span>Rarely or never</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q3" value="2">
+                                                <span>Sometimes</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q3" value="3">
+                                                <span>Frequently</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="quiz-question" data-question="4" style="display: none;">
+                                    <p>Do you feel responsible for their behavior towards you?</p>
+                                    <div class="quiz-options">
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q4" value="1" required>
+                                                <span>Rarely or never</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q4" value="2">
+                                                <span>Sometimes</span>
+                                            </label>
+                                        </div>
+                                        <div class="quiz-option">
+                                            <label>
+                                                <input type="radio" name="q4" value="3">
+                                                <span>Frequently</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="quiz-navigation">
+                                <button type="button" id="prev-btn" class="card-button" style="display: none;">Previous</button>
+                                <button type="button" id="next-btn" class="card-button">Next</button>
+                                <button type="submit" id="submit-btn" class="card-button" style="display: none;">Submit Quiz</button>
+                            </div>
+                        </form>
+
+                        <div id="quiz-results" style="display: none;">
+                            <h2>Your Results</h2>
+                            <div id="result-title" class="result-title"></div>
+                            <div id="result-content" class="result-content"></div>
+                            <div id="past-results-container" class="past-results"></div>
+                        </div>
+        
+        <!-- Floating Reading Progress Indicator -->
+        <div class="reading-progress-indicator">
+            <div class="progress-circle">
+                <span id="progress-percentage">0%</span>
+            </div>
+            <div class="progress-text">Reading</div>
+        </div>
+    </div>
+    <script src="gaslighting.js"></script>
+</body>
+</html>
